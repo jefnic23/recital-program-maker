@@ -1,0 +1,37 @@
+.form-group {
+    margin-bottom: 15px;
+}
+
+hr {
+    margin-top: 3rem;
+    margin-bottom: 3rem; 
+}
+
+#titleCanvas {
+    z-index: 1;
+    position: absolute;
+    left: 3rem;
+    top: 1rem;
+    outline: black 3px solid;
+}
+
+#subtitleCanvas {
+    z-index: 2;
+    position: absolute;
+    left: 3rem;
+    top: 1rem;
+}
+
+#pieceCanvas {
+    z-index: 3;
+    position: absolute;
+    left: 3rem;
+    top: 1rem;
+}
+
+#performerCanvas {
+    z-index: 4;
+    position: absolute;
+    left: 3rem;
+    top: 1rem;
+}
