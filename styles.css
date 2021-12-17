@@ -7,7 +7,32 @@ hr {
     margin-bottom: 3rem; 
 }
 
-#titleCanvas {
+label {
+    font-weight: bold;
+}
+
+.inputs {
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+
+#program {
+    width: 550px;
+    height: 850px;
+    padding: 50px;
+    margin: auto;
+    outline: black 3px solid;
+}
+
+#title, #subtitle {
+    text-align: center;
+}
+
+#performers {
+    text-align: justify;
+}
+
+/* #titleCanvas {
     z-index: 1;
     position: absolute;
     left: 3rem;
@@ -34,4 +59,4 @@ hr {
     position: absolute;
     left: 3rem;
     top: 1rem;
-}
+} */

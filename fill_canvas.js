@@ -63,10 +63,12 @@ enter_performance.addEventListener("click", () => {
         if (pieces.length > 1) {
             piece_y += 16;
             performer_y = piece_y + 2;
+        } else {
+            piece_y += 16;
         }
     }
     var performer_text = performer_input.value;
     performer_context.fillText(performer_text, canvas_x, performer_y);
-    piece_y += 48;
+    piece_y += 32;
     performer_y = piece_y + 16;
 })

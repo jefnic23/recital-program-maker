@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Program Maker</title>
+        <link rel="icon" href="favicon.png">
+        <link rel="shortcut icon" href="favicon.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <link href="styles.css" rel="stylesheet">
     </head>
@@ -8,8 +11,8 @@
         <div class="container-fluid">
             <br>
             <div class="row">
-                <div class="col">
-                    <form>
+                <div class="col-5">
+                    <form class="inputs">
                         <div class="row form-group">
                             <label for="titleInput">Program title</label>
                             <input class="form-control" id="titleInput" type="text" placeholder="enter the title for your recital">
@@ -35,17 +38,25 @@
                         <button id="enterPerformance" type="button" class="btn btn-primary row">Enter performer info</button>
                     </form>
                 </div>
-                <div class="col" style="position: relative;">
+                <div class="col-7">
+                    <div id="program">
+                        <div id="title"></div>
+                        <div id="subtitle"></div>
+                        <div id="performers"></div>
+                    </div>
+                </div>
+                <!-- <div class="col" style="position: relative;">
                     <canvas id="titleCanvas" width="528" height="816"></canvas>
                     <canvas id="subtitleCanvas" width="528" height="816"></canvas>
                     <canvas id="pieceCanvas" width="528" height="816"></canvas>
                     <canvas id="performerCanvas" width="528" height="816"></canvas>
-                    <!-- blend all above canvases below -->
                     <canvas id="finalCanvas" width="528" height="816"></canvas>
-                </div>
+                </div> -->
             </div>
         </div>
-        <script src="justify_text.js"></script>
-        <script src="fill_canvas.js"></script>
+        <script src="fonts.js"></script>
+        <script src="create_program.js"></script>
+        <!-- <script src="justify_text.js"></script> -->
+        <!-- <script src="fill_canvas.js"></script> -->
     </body>
 </html>
