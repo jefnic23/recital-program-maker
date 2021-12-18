@@ -7,16 +7,25 @@ hr {
     margin-bottom: 3rem; 
 }
 
+hr.style14 { 
+    border: 0; 
+    height: 1px; 
+    background-image: -webkit-linear-gradient(left, #DCDCDC, #383838, #DCDCDC);
+    background-image: -moz-linear-gradient(left, #DCDCDC, #383838, #DCDCDC);
+    background-image: -ms-linear-gradient(left, #DCDCDC, #383838, #DCDCDC);
+    background-image: -o-linear-gradient(left, #DCDCDC, #383838, #DCDCDC); 
+}
+
 label {
     font-weight: bold;
 }
 
 .inputs {
-    margin-top: 1rem;
-    margin-left: 3rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
 }
 
-#program {
+.program {
     width: 550px;
     height: 850px;
     padding: 50px;
@@ -24,12 +33,54 @@ label {
     outline: black 3px solid;
 }
 
-#title, #subtitle {
+#title {
+    text-align: center;
+    font-size: 34px;
+    line-height: 1;
+}
+
+#subtitle {
     text-align: center;
 }
 
-#performers {
+.performer {
+    font-family: "Helvetica", sans-serif;
+    font-size: 13pt;
+    text-align: center;
+}
+
+#performances {
+    width: 450px;
+}
+
+.performance:hover {
+    background-color: yellow;
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.piece {
+    font-family: "Helvetica", sans-serif;
+    font-size: 11pt;
+    width: 450px;
+    margin: 0;
     text-align: justify;
+    line-height: 0.5;
+}
+
+.piece:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+}
+
+.test {
+    font-family: "Helvetica", sans-serif;
+    font-size: 11pt;
+    height: auto;
+    width: auto;
+    position: absolute;
+    white-space: nowrap;
 }
 
 /* #titleCanvas {

@@ -20,16 +20,16 @@
                         <hr/>
                         <div class="row form-group">
                             <label for="subtitleInput">Subtitle</label>
-                            <input class="form-control" id="subtitleInput" type="text" placeholder="enter subtitle, if any">
+                            <textarea class="form-control" id="subtitleInput" type="text" placeholder="enter subtitle, if any"></textarea>
                         </div>
                         <hr/>
                         <div class="row form-group">
                             <label for="pieceInput">Piece title</label>
-                            <input class="form-control" id="pieceInput" type="text" placeholder="enter composition title">
+                            <textarea class="form-control" id="pieceInput" type="text" placeholder="enter composition title(s)"></textarea>
                         </div>
                         <div class="row form-group">
                             <label for="composerInput">Composer</label>
-                            <input class="form-control" id="composerInput" type="text" placeholder="enter the composer's name">
+                            <textarea class="form-control" id="composerInput" type="text" placeholder="enter composer name(s)"></textarea>
                         </div>
                         <div class="row form-group">
                             <label for="performerInput">Performer</label>
@@ -39,10 +39,11 @@
                     </form>
                 </div>
                 <div class="col-7">
-                    <div id="program">
+                    <div class="program" id="page1">
                         <div id="title"></div>
                         <div id="subtitle"></div>
-                        <div id="performers"></div>
+                        <hr class="style14">
+                        <div id="performances"></div>
                     </div>
                 </div>
                 <!-- <div class="col" style="position: relative;">
