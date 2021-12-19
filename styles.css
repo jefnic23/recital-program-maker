@@ -3,8 +3,8 @@
 }
 
 hr {
-    margin-top: 3rem;
-    margin-bottom: 3rem; 
+    margin-top: 34px;
+    margin-bottom: 34px; 
 }
 
 hr.style14 { 
@@ -25,17 +25,35 @@ label {
     margin-left: 2rem;
 }
 
-.program {
+.program-page {
     width: 550px;
     height: 850px;
     padding: 50px;
-    margin: auto;
+    margin-left: auto;
     outline: black 3px solid;
+}
+
+#program {
+    display: grid;
+}
+
+.layer {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#selector {
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-page {
+    transform: scale(0.20) translate(-200%, -200%);
+    margin-bottom: -665px;
 }
 
 #title {
     text-align: center;
-    font-size: 34px;
     line-height: 1;
 }
 
