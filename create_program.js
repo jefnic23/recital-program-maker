@@ -14,7 +14,19 @@ const enter_performance = document.getElementById("enterPerformance");
 const font_link_base = "http://fonts.googleapis.com/css?family=";
 
 // # of program pages; if > 2 make booklet mode
-var pages = 1;
+var num_pages = 1;
+var current_page = 1;
+
+// check if current page is overflowing
+function checkOverflow(el) {
+    var current_overflow = el.style.overflow;
+    if (!current_overflow || current_overflow === "visible") {
+        el.style.overflow = "hidden";
+    }
+    var is_overflow = el.clientHeight < el.scrollHeight;
+    el.style.overflow = current_overflow;
+    return is_overflow;
+}
 
 // create mini page views for toggling
 function clonePage(number) {
@@ -25,7 +37,7 @@ function clonePage(number) {
     page_clone.id = `page${number}Clone`;
 }
 
-clonePage(pages);
+clonePage(current_page);
 
 function updateClone(number) {
     var page = document.getElementById(`page${number}`);
@@ -34,16 +46,15 @@ function updateClone(number) {
     new_clone.classList.add("mini-page");
     new_clone.id = `page${number}Clone`;
     old_clone.replaceWith(new_clone);
-}
-
-// get page height to check if multiple pages are needed
-var title_height = title.offsetHeight;
-var subtitle_height = subtitle.offsetHeight;
-var performances_height = performances.offsetHeight;
-var total_height = 68 + title_height + subtitle_height + performances_height;
-
-function getHeight(title_height, subtitle_height, performances_height) {
-    total_height = 68 + title_height + subtitle_height + performances_height;
+    try {
+        var nodes = document.getElementById(`page${number}Clone`).childNodes[7].childNodes;
+        for (let i = 0; i < nodes.length; i++) {
+            nodes[i].setAttribute('onclick', '');
+        }
+    }
+    catch (err) {
+        // ignore performers that haven't been entered yet
+    }
 }
 
 // create and set title
@@ -63,9 +74,7 @@ link.setAttribute("href", font_link_base + "ABeeZee");
 function changeTitleFont(value) {
     link.setAttribute("href", font_link_base + value.split(" ").join("+"))
     title.style.fontFamily = value;
-    title_height = title.offsetHeight;
-    getHeight(title_height, subtitle_height, performances_height);
-    updateClone(pages);
+    updateClone(current_page);
 }
 
 for (let i = 12; i < 72; i++) {
@@ -77,30 +86,24 @@ for (let i = 12; i < 72; i++) {
 
 function changeTitleSize(value) {
     title.style.fontSize = value + "px";
-    title_height = title.offsetHeight;
-    getHeight(title_height, subtitle_height, performances_height);
-    updateClone(pages);
+    updateClone(current_page);
 }
 
 title_input.addEventListener("input", () => {
     title.innerHTML = title_input.value;
-    title_height = title.offsetHeight;
-    getHeight(title_height, subtitle_height, performances_height);
-    updateClone(pages);
+    updateClone(current_page);
 })
 
 // create subtitle(s)
 subtitle_input.addEventListener("input", () => {
-    subtitle.innerHTML = subtitle_input.value.replace(/\r?\n/, "<br/>");
-    subtitle_height = subtitle.offsetHeight;
-    getHeight(title_height, subtitle_height, performances_height);
-    updateClone(pages);
+    subtitle.innerHTML = subtitle_input.value.split(/\r?\n/).join("<br/>");
+    updateClone(current_page);
 })
 
-// create performance info
+// create performance info; change this to allow both editing and destruction
 function removePerformance(el) {
     el.remove();
-    updateClone(pages);
+    updateClone(current_page);
 }
 
 enter_performance.addEventListener("click", () => {
@@ -112,7 +115,8 @@ enter_performance.addEventListener("click", () => {
     div.setAttribute("onclick", "removePerformance(this)");
     for (let i = 0; i < pieces.length; i++) {
         var filler = ' . ';
-        var piece = "<b>" + pieces[i].trim() + "</b>" || 'Untitled';
+        var piece = pieces[i].trim() || 'Untitled';
+        piece = "<b>" + piece + "</b>"
         var composer = composers[i].trim() || "Anon.";
         var text = piece + filler + composer;
         var p = document.createElement("p");
@@ -137,22 +141,27 @@ enter_performance.addEventListener("click", () => {
     var p = document.createElement("p");
     div.appendChild(p);
     p.className = "performer";
-    p.innerHTML = "<i>" + performer_input.value.trim() + "</i>";
+    var perf_name = performer_input.value.trim() || 'John/Jane Doe';
+    p.innerHTML = "<i>" + perf_name + "</i>";
     piece_input.value = '';
     composer_input.value = '';
     performer_input.value = '';
-    performances_height = performances.offsetHeight;
-    getHeight(title_height, subtitle_height, performances_height);
-    updateClone(pages);
-    if (total_height > 750) {
-        pages += 1;
+    updateClone(current_page);
+    if (checkOverflow(document.getElementById(`page${current_page}`))) {
+        document.getElementById(`page${current_page}`).style.visibility = "hidden";
+        current_page += 1;
         var new_page = document.createElement('div');
         program.appendChild(new_page);
         new_page.className = "program-page layer";
-        new_page.id = `page${pages}`;
-        clonePage(pages);
+        new_page.id = `page${current_page}`;
+        clonePage(current_page);
 
         var last_performance = performances.lastChild.cloneNode(true);
-        
+        var div = document.createElement('div');
+        new_page.append(div);
+        div.id = `performances${current_page}`;
+        div.append(last_performance);
+        performances.lastChild.remove();
+        performances.style.height = "calc(100% - 100px)";
     }
 })

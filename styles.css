@@ -31,6 +31,7 @@ label {
     padding: 50px;
     margin-left: auto;
     outline: black 3px solid;
+    overflow: auto;
 }
 
 #program {
@@ -61,20 +62,15 @@ label {
     text-align: center;
 }
 
-.performer {
-    font-family: "Helvetica", sans-serif;
-    font-size: 13pt;
-    text-align: center;
-}
-
 #performances {
     width: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.performance:hover {
-    background-color: yellow;
-    border: 1px solid;
-    border-radius: 5px;
+.performance {
+    line-height: 1;
 }
 
 .piece {
@@ -83,13 +79,19 @@ label {
     width: 450px;
     margin: 0;
     text-align: justify;
-    line-height: 0.5;
 }
 
 .piece:after {
     content: "";
     width: 100%;
     display: inline-block;
+}
+
+.performer {
+    font-family: "Helvetica", sans-serif;
+    font-size: 13pt;
+    text-align: center;
+    margin-top: -13px;
 }
 
 .test {
