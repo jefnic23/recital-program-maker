@@ -4,7 +4,7 @@ const title = document.getElementById("title");
 const title_font_family = document.getElementById('titleFontFamily');
 const title_font_size = document.getElementById('titleFontSize');
 const subtitle = document.getElementById('subtitle');
-const performances = document.getElementById('performances');
+const performances1 = document.getElementById('performances1');
 const title_input = document.getElementById('titleInput');
 const subtitle_input = document.getElementById('subtitleInput');
 const piece_input = document.getElementById("pieceInput");
@@ -12,6 +12,12 @@ const composer_input = document.getElementById("composerInput");
 const performer_input = document.getElementById("performerInput");
 const enter_performance = document.getElementById("enterPerformance");
 const font_link_base = "http://fonts.googleapis.com/css?family=";
+
+// set ids on multiple pages
+const performances2 = document.createElement('div');
+const performances3 = document.createElement('div');
+const performances4 = document.createElement('div');
+const performances = [performances1, performances2, performances3, performances4]
 
 // # of program pages; if > 2 make booklet mode
 var num_pages = 1;
@@ -110,7 +116,7 @@ enter_performance.addEventListener("click", () => {
     var pieces = piece_input.value.split(/\r?\n/) || 'Untitled';
     var composers = composer_input.value.split(/\r?\n/) || "Anon.";
     var div = document.createElement("div");
-    performances.appendChild(div);
+    performances[current_page-1].appendChild(div);
     div.className = 'performance';
     div.setAttribute("onclick", "removePerformance(this)");
     for (let i = 0; i < pieces.length; i++) {
@@ -156,12 +162,11 @@ enter_performance.addEventListener("click", () => {
         new_page.id = `page${current_page}`;
         clonePage(current_page);
 
-        var last_performance = performances.lastChild.cloneNode(true);
-        var div = document.createElement('div');
-        new_page.append(div);
-        div.id = `performances${current_page}`;
-        div.append(last_performance);
-        performances.lastChild.remove();
-        performances.style.height = "calc(100% - 100px)";
+        var last_performance = performances[current_page-2].lastChild.cloneNode(true);
+        new_page.append(performances[current_page-1]);
+        performances[current_page-1].id = `performances${current_page}`;
+        performances[current_page-1].append(last_performance);
+        performances[current_page-2].lastChild.remove();
+        // performances.style.height = "calc(100% - 100px)";
     }
 })
