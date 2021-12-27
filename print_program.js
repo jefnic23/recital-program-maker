@@ -14,13 +14,14 @@ print.addEventListener('click', () => {
     }
     document.body.appendChild(div);
     html2canvas(document.getElementById('print-program')).then((canvas) => {
+        // document.body.appendChild(canvas);
         var img = canvas.toDataURL("image/jpeg");
-        var pdf = new jsPDF({
+        var pdf = new jspdf.jsPDF({
             orientation: 'landscape',
-            unit: "pt",
-            format: [canvas.width, canvas.height]
+            unit: "in",
+            format: [11, 8.5]
         });
-        pdf.addImage(img, 'JPEG', 0, 0, canvas.width, canvas.height);
+        pdf.addImage(img, 'JPEG', 0, 0, 11, 8.5);
         var name = title.innerHTML || 'Program';
         pdf.save(name + '.pdf');
     });
