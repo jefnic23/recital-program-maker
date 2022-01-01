@@ -20,18 +20,12 @@
     margin-bottom: 15px;
 }
 
-hr {
+hr.style14 { 
     margin-top: 34px;
     margin-bottom: 34px; 
-}
-
-hr.style14 { 
     border: 0; 
     height: 1px; 
-    background-image: -webkit-linear-gradient(left, #DCDCDC, #383838, #DCDCDC);
-    background-image: -moz-linear-gradient(left, #DCDCDC, #383838, #DCDCDC);
-    background-image: -ms-linear-gradient(left, #DCDCDC, #383838, #DCDCDC);
-    background-image: -o-linear-gradient(left, #DCDCDC, #383838, #DCDCDC); 
+    background: linear-gradient(to right, rgb(245,245,245), rgb(8,8,8), rgb(245,245,245));
 }
 
 label {
