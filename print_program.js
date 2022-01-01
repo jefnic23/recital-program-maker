@@ -13,7 +13,7 @@ print.addEventListener('click', () => {
         div.appendChild(page);
     }
     document.body.appendChild(div);
-    html2canvas(document.getElementById('print-program')).then((canvas) => {
+    html2canvas(document.getElementById('print-program'), {scale: 4}).then((canvas) => {
         // document.body.appendChild(canvas);
         var img = canvas.toDataURL("image/jpeg");
         var pdf = new jspdf.jsPDF({
