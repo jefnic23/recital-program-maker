@@ -16,6 +16,7 @@ print.addEventListener('click', () => {
         var page2 = document.getElementById(pages[i].id).cloneNode(true);
         page1.style.visibility = "visible";
         page2.style.visibility = "visible";
+        page1.style.borderRight = "1px solid #bbb";
         if (i === 0) {
             front.appendChild(page1);
             front.appendChild(page2);
