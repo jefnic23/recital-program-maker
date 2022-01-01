@@ -125,6 +125,10 @@ enter_performance.addEventListener("click", () => {
     composer_input.value = '';
     performer_input.value = '';
     if (checkOverflow(document.getElementById(`page${current_page}`))) {
+        var title_height = title.offsetHeight;
+        var subtitle_height = subtitle.offsetHeight;
+        var performance_height = 750 - 69 - title_height - subtitle_height;
+
         document.getElementById(`page${current_page}`).style.visibility = "hidden";
         current_page += 1;
         var new_page = document.createElement('div');
@@ -137,6 +141,6 @@ enter_performance.addEventListener("click", () => {
         performances[current_page-1].id = `performances${current_page}`;
         performances[current_page-1].append(last_performance);
         performances[current_page-2].lastChild.remove();
-        // performances.style.height = "calc(100% - 100px)";
+        performances[current_page-2].style.height = `${performance_height}px`;
     }
 })

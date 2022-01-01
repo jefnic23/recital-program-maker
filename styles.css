@@ -64,14 +64,14 @@ label {
     text-align: center;
 }
 
-#performances {
+#performances1 {
     width: 450px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 .performance {
+    flex: 1;
     line-height: 1;
 }
 
