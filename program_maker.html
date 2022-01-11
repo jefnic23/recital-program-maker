@@ -14,7 +14,8 @@
             <div class="container-fluid">
                 <div class="navbar-brand">Program Maker</div>
                 <div class="nav navbar-nav navbar-left">
-                    <img id="print" class="hvr-grow" src="print-solid.png" style="height: 21px;">
+                    <img id="search" class="icon hvr-grow" src="search-solid.png">
+                    <img id="print" class="icon hvr-grow" src="print-solid.png">
                 </div>
             </div>
         </nav>
@@ -29,33 +30,40 @@
                         </div>
                         <div class="row form-inline">
                             <div class="col-8">
-                                <label for="titleFontFamily">Font</label>
+                                <label for="titleFontFamily" style="padding-left: 12px;">Font</label>
                                 <select size="5" id="titleFontFamily" class="form-select form-select-sm" onchange="changeTitleFont(this.value)"></select>
                             </div>
                             <div class="col-4">
-                                <label for="titleFontSize">Size</label>
+                                <label for="titleFontSize" style="padding-left: 12px;">Size</label>
                                 <select size="5" id="titleFontSize" class="form-select form-select-sm" onchange="changeTitleSize(this.value)"></select>
                             </div>
                         </div>
-                        <hr style="margin-top: 34px; margin-left: 34px;"/>
+                        <hr style="margin-top: 21px; margin-bottom: 21px;"/>
                         <div class="row form-group">
                             <label for="subtitleInput">Subtitle</label>
                             <textarea class="form-control" id="subtitleInput" type="text" placeholder="enter subtitle(s), if any"></textarea>
                         </div>
-                        <hr style="margin-top: 34px; margin-left: 34px;"/>
+                        <hr style="margin-top: 21px; margin-bottom: 21px;"/>
                         <div class="row form-group">
-                            <label for="pieceInput">Piece title</label>
-                            <textarea class="form-control" id="pieceInput" type="text" placeholder="enter composition title(s)"></textarea>
-                        </div>
-                        <div class="row form-group">
-                            <label for="composerInput">Composer</label>
-                            <textarea class="form-control" id="composerInput" type="text" placeholder="enter composer name(s)"></textarea>
+                            <div class='col-6' style="padding-left: 0;">
+                                <label for="pieceInput" style="padding-left: 12px;">Piece title</label>
+                                <textarea class="form-control" id="pieceInput" type="text" placeholder="enter composition title(s)"></textarea>
+                            </div>
+                            <div class='col-6' style="padding-right: 0;">
+                                <label for="composerInput" style="padding-left: 12px;">Composer</label>
+                                <textarea class="form-control" id="composerInput" type="text" placeholder="enter composer name(s)"></textarea>
+                            </div>
                         </div>
                         <div class="row form-group">
                             <label for="performerInput">Performer</label>
                             <input class="form-control" id="performerInput" type="text" placeholder="enter performer name(s)">
                         </div>
                         <button id="enterPerformance" type="button" class="btn btn-primary row">Enter performer info</button>
+                        <hr style="margin-top: 21px; margin-bottom: 21px;"/>
+                        <div class="row form-group">
+                            <label for="footerInput">Footer</label>
+                            <textarea class="form-control" id="footerInput" type="text" placeholder="enter footer(s), if any"></textarea>
+                        </div>
                     </form>
                 </div>
                 <div class="col-7">
@@ -63,8 +71,12 @@
                         <div class="program-page layer" id="page1">
                             <div id="title"></div>
                             <div id="subtitle"></div>
-                            <hr class="style14">
+                            <hr class="style1">
                             <div id="performances1"></div>
+                            <div id='footer'>
+                                <!-- <hr class="style2"> -->
+                                <p id="footerText"></p>
+                            </div>
                         </div>
                     </div>
                 </div>

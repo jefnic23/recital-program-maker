@@ -16,13 +16,27 @@
     cursor: pointer;
 }
 
+.icon {
+    height: 21px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
 .form-group {
     margin-bottom: 15px;
 }
 
-hr.style14 { 
+hr.style1 { 
     margin-top: 34px;
     margin-bottom: 34px; 
+    border: 0; 
+    height: 1px; 
+    background: linear-gradient(to right, rgb(245,245,245), rgb(8,8,8), rgb(245,245,245));
+}
+
+hr.style2 { 
+    margin-top: 11px;
+    margin-bottom: 11px; 
     border: 0; 
     height: 1px; 
     background: linear-gradient(to right, rgb(245,245,245), rgb(8,8,8), rgb(245,245,245));
@@ -38,6 +52,7 @@ label {
 }
 
 .program-page {
+    position: relative;
     width: 550px;
     height: 850px;
     padding: 50px;
@@ -62,6 +77,18 @@ label {
 
 #subtitle {
     text-align: center;
+}
+
+#footer {
+    position: absolute;
+    bottom: 50px;
+    width: 450px;
+    text-align: center;
+}
+
+#footerText {
+    font-size: 8pt;
+    font-style: italic;
 }
 
 #performances1 {
@@ -108,32 +135,3 @@ label {
     position: absolute;
     white-space: nowrap;
 }
-
-/* #titleCanvas {
-    z-index: 1;
-    position: absolute;
-    left: 3rem;
-    top: 1rem;
-    outline: black 3px solid;
-}
-
-#subtitleCanvas {
-    z-index: 2;
-    position: absolute;
-    left: 3rem;
-    top: 1rem;
-}
-
-#pieceCanvas {
-    z-index: 3;
-    position: absolute;
-    left: 3rem;
-    top: 1rem;
-}
-
-#performerCanvas {
-    z-index: 4;
-    position: absolute;
-    left: 3rem;
-    top: 1rem;
-} */

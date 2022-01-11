@@ -4,12 +4,15 @@ const title_font_family = document.getElementById('titleFontFamily');
 const title_font_size = document.getElementById('titleFontSize');
 const subtitle = document.getElementById('subtitle');
 const performances1 = document.getElementById('performances1');
+const footer = document.getElementById('footer');
+const footer_text = document.getElementById('footerText');
 const title_input = document.getElementById('titleInput');
 const subtitle_input = document.getElementById('subtitleInput');
 const piece_input = document.getElementById("pieceInput");
 const composer_input = document.getElementById("composerInput");
 const performer_input = document.getElementById("performerInput");
 const enter_performance = document.getElementById("enterPerformance");
+const footer_input = document.getElementById("footerInput");
 const font_link_base = "http://fonts.googleapis.com/css?family=";
 
 // set ids on multiple pages
@@ -31,6 +34,36 @@ function checkOverflow(el) {
     var is_overflow = el.clientHeight < el.scrollHeight;
     el.style.overflow = current_overflow;
     return is_overflow;
+}
+
+// move footer to new page
+function moveFooter(new_page) {
+    new_page.append(performances[current_page-2].lastChild);
+    new_page.appendChild(footer);
+}
+
+// if page is overflowing, move content to new page
+function newPage() {
+    if (checkOverflow(document.getElementById(`page${current_page}`))) {
+        var title_height = title.offsetHeight;
+        var subtitle_height = subtitle.offsetHeight;
+        var footer_height = footer.offsetHeight;
+        if (current_page != 1) {
+            var performance_height = 750 - 69 - title_height - subtitle_height - footer_height;
+        } else {
+            var performance_height = 750 - 69 - title_height - subtitle_height;
+        }
+        document.getElementById(`page${current_page}`).style.visibility = "hidden";
+        current_page += 1;
+        var new_page = document.createElement('div');
+        program.appendChild(new_page);
+        new_page.className = "program-page layer";
+        new_page.id = `page${current_page}`;
+        new_page.append(performances[current_page-1]);
+        moveFooter(new_page);
+        performances[current_page-1].id = `performances${current_page}`;
+        performances[current_page-2].style.height = `${performance_height}px`;
+    }
 }
 
 // create and set title
@@ -65,11 +98,19 @@ function changeTitleSize(value) {
 
 title_input.addEventListener("input", () => {
     title.innerHTML = title_input.value;
+    newPage()
 })
 
 // create subtitle(s)
 subtitle_input.addEventListener("input", () => {
     subtitle.innerHTML = subtitle_input.value.split(/\r?\n/).join("<br/>");
+    newPage()
+})
+
+// create footer(s)
+footer_input.addEventListener("input", () => {
+    footer_text.innerHTML = footer_input.value.split(/\r?\n/).join("<br/>");
+    newPage()
 })
 
 // create performance info; change this to allow both editing and destruction
@@ -124,23 +165,5 @@ enter_performance.addEventListener("click", () => {
     piece_input.value = '';
     composer_input.value = '';
     performer_input.value = '';
-    if (checkOverflow(document.getElementById(`page${current_page}`))) {
-        var title_height = title.offsetHeight;
-        var subtitle_height = subtitle.offsetHeight;
-        var performance_height = 750 - 69 - title_height - subtitle_height;
-
-        document.getElementById(`page${current_page}`).style.visibility = "hidden";
-        current_page += 1;
-        var new_page = document.createElement('div');
-        program.appendChild(new_page);
-        new_page.className = "program-page layer";
-        new_page.id = `page${current_page}`;
-
-        var last_performance = performances[current_page-2].lastChild.cloneNode(true);
-        new_page.append(performances[current_page-1]);
-        performances[current_page-1].id = `performances${current_page}`;
-        performances[current_page-1].append(last_performance);
-        performances[current_page-2].lastChild.remove();
-        performances[current_page-2].style.height = `${performance_height}px`;
-    }
+    newPage();
 })

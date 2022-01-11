@@ -35,7 +35,6 @@ print.addEventListener('click', () => {
         format: [11, 8.5]
     });
     html2canvas(document.getElementById('frontPage'), {scale: 4}).then((canvas) => {
-        // document.body.appendChild(canvas);
         var img = canvas.toDataURL("image/jpeg");
         pdf.addImage(img, 'JPEG', 0, 0, 11, 8.5);
     });
@@ -44,7 +43,7 @@ print.addEventListener('click', () => {
         pdf.addPage();
         pdf.addImage(img, 'JPEG', 0, 0, 11, 8.5);
         var name = title.innerHTML || 'Program';
-        pdf.save(name + '.pdf');
+        // pdf.save(name + '.pdf');
     });
-    document.body.removeChild(div);
+    // document.body.removeChild(div);
 });
