@@ -99,6 +99,7 @@ hr.style2 {
 #footerText {
     font-size: 8pt;
     font-style: italic;
+    margin: 0;
 }
 
 .performance {

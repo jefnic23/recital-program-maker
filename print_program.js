@@ -42,8 +42,12 @@ print.addEventListener('click', () => {
         var img = canvas.toDataURL("image/jpeg");
         pdf.addPage();
         pdf.addImage(img, 'JPEG', 0, 0, 11, 8.5);
-        var name = title.innerHTML || 'Program';
-        pdf.save(name + '.pdf');
+        pdf.autoPrint({variant: 'non-conform'});
+        window.open(pdf.output('bloburl'), '_blank');
+
+        // code below creates direct download, instead of print dialog
+        // var name = title.innerHTML || 'Program';
+        // pdf.save(name + '.pdf');
     });
     document.body.removeChild(div);
 });
