@@ -18,6 +18,18 @@
 
 .navbar-nav {
     flex-direction: row;
+    column-gap: 13px;
+}
+
+.icon_container {
+    float: right;
+}
+
+.icon_container > span {
+    display: block;
+    color: #fff;
+    font-size: 8pt;
+    text-align: center;
 }
 
 .icon {
