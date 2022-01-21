@@ -1,6 +1,10 @@
-const print = document.getElementById('print');
+const print_preview = document.getElementById('printPreview');
+const preview = document.getElementById('preview');
+preview.onclick = () => {
+    on();
+};
 
-print.addEventListener('click', () => {
+function on() {
     var div = document.createElement('div');
     div.id = "print-program";
     div.style.height = '1700px';
@@ -36,19 +40,21 @@ print.addEventListener('click', () => {
         format: [11, 8.5]
     });
     html2canvas(document.getElementById('frontPage'), {scale: 4}).then((canvas) => {
+        print_preview.appendChild(canvas);
         var img = canvas.toDataURL("image/jpeg");
         pdf.addImage(img, 'JPEG', 0, 0, 11, 8.5);
     });
     html2canvas(document.getElementById('backPage'), {scale: 4}).then((canvas) => {
+        print_preview.appendChild(canvas);
         var img = canvas.toDataURL("image/jpeg");
         pdf.addPage();
-        pdf.addImage(img, 'JPEG', 0, 0, 11, 8.5);
-        pdf.autoPrint({variant: 'non-conform'});
-        window.open(pdf.output('bloburl'), '_blank');
-
-        // code below creates direct download, instead of print dialog
-        // var name = title.innerHTML || 'Program';
-        // pdf.save(name + '.pdf');
+        pdf.addImage(img, 'JPEG', 0, 0, 11, 8.5);  
     });
     document.body.removeChild(div);
-});
+    document.getElementById("overlay").style.display = "block";
+}
+  
+function off() {
+    document.getElementById("overlay").style.display = "none";
+}
+

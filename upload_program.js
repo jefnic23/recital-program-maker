@@ -48,8 +48,11 @@ function readUpload(event) {
                 }
             }
             title.innerHTML = details.title;
+            title_input.value = title.innerHTML;
             subtitle.innerHTML = details.subtitle.split(/\r?\n/).join("<br/>");
+            subtitle_input.value = subtitle.innerHTML;
             footer_text.innerHTML = details.footer.split(/\r?\n/).join("<br/>");
+            footer_input.value = footer_text.innerHTML;
             for (performer in details.performers) {
                 if (details.performers.hasOwnProperty(performer)) {
                     var div = document.createElement('div');
@@ -87,7 +90,7 @@ function readUpload(event) {
                     p.className = "performer";
                     var perf_name = performer || 'John/Jane Doe';
                     p.innerHTML = "<i>" + perf_name + "</i>";
-                    newPage();
+                    newPage(upload=true);
                 }
             }
             var performance_height = performances[current_page-1].offsetHeight + ((750 - performances[current_page-1].offsetHeight - footer.offsetHeight) / 2);

@@ -49,12 +49,11 @@ function moveFooter(performance, page) {
 }
 
 // if page is overflowing, move content to new page
-function newPage() {
+function newPage(upload=false) {
     if (checkOverflow(document.getElementById(`page${current_page}`))) {
         var title_height = title.offsetHeight / 2;
         var subtitle_height = subtitle.offsetHeight;
         var performance_height = 750 - 69 - title_height - subtitle_height;
-        document.getElementById(`page${current_page}`).style.visibility = "hidden";
         current_page += 1;
         var new_page = document.createElement('div');
         program.appendChild(new_page);
@@ -64,6 +63,12 @@ function newPage() {
         performances[current_page-1].id = `performances${current_page}`;
         performances[current_page-2].style.height = `${performance_height}px`;
         moveFooter(performances[current_page-1], new_page);
+
+        if (upload) {
+            document.getElementById(`page${current_page}`).style.visibility = "hidden";
+        } else {
+            document.getElementById(`page${current_page-1}`).style.visibility = "hidden";
+        }
     }
 }
 

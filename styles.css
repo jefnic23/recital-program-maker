@@ -59,6 +59,10 @@ hr.style2 {
     margin-left: 2rem;
 }
 
+#program {
+    display: grid;
+}
+
 .program-page {
     position: relative;
     width: 550px;
@@ -69,23 +73,25 @@ hr.style2 {
     overflow: auto;
 }
 
-#program {
-    display: grid;
-}
-
 .layer {
     grid-column: 1;
     grid-row: 1;
 }
 
+#header {
+    display: flex;
+    flex-direction: column;
+}
+
 #title {
+    line-height: 1;
     text-align: center;
-    line-height: 1.25;
 }
 
 #subtitle {
     font-family: "Helvetica", sans-serif;
     font-size: 12pt;
+    line-height: 1.25;
     text-align: center;
 }
 
@@ -137,4 +143,18 @@ hr.style2 {
     width: auto;
     position: absolute;
     white-space: nowrap;
+}
+
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
 }

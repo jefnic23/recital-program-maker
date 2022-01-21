@@ -22,7 +22,7 @@
                             <input id="upload" type='file'/>
                         </li>
                         <li class="nav-item">
-                            <img id="search" class="icon hvr-grow" src="search-solid.png">
+                            <img id="preview" class="icon hvr-grow" src="search-solid.png">
                         </li>
                         <li class="nav-item">
                             <img id="print" class="icon hvr-grow" src="print-solid.png">
@@ -81,8 +81,10 @@
                 <div class="col-7">
                     <div id="program">
                         <div class="program-page layer" id="page1">
-                            <div id="title"></div>
-                            <div id="subtitle"></div>
+                            <div id='header'>
+                                <div id="title"></div>
+                                <div id="subtitle"></div>
+                            </div>
                             <hr class="style1">
                             <div id="performances1"></div>
                             <div id='footer'>
@@ -93,10 +95,14 @@
                     </div>
                 </div>
             </div>
+            <div id="overlay" onclick="off()">
+                <div id="printPreview"></div>
+            </div>
         </div>
         <script type="text/javascript" src="fonts.js"></script>
         <script type="text/javascript" src="create_program.js"></script>
-        <script type='text/javascript' src="print_program.js"></script>
         <script type='text/javascript' src="upload_program.js"></script>
+        <script type='text/javascript' src="print_program.js"></script>
+        <script type='text/javascript' src="print_preview.js"></script>
     </body>
 </html>
