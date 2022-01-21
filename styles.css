@@ -16,10 +16,18 @@
     cursor: pointer;
 }
 
+.navbar-nav {
+    flex-direction: row;
+}
+
 .icon {
     height: 21px;
     padding-left: 8px;
     padding-right: 8px;
+}
+
+input[type='file'] {
+    display: none;
 }
 
 .form-group {
@@ -42,7 +50,7 @@ hr.style2 {
     background: linear-gradient(to right, rgb(245,245,245), rgb(8,8,8), rgb(245,245,245));
 }
 
-label {
+.inputs label {
     font-weight: bold;
 }
 
@@ -72,10 +80,12 @@ label {
 
 #title {
     text-align: center;
-    line-height: 1;
+    line-height: 1.25;
 }
 
 #subtitle {
+    font-family: "Helvetica", sans-serif;
+    font-size: 12pt;
     text-align: center;
 }
 
@@ -91,23 +101,19 @@ label {
     font-style: italic;
 }
 
-#performances1 {
-    width: 450px;
+.performance {
+    flex: 1;
     display: flex;
     flex-direction: column;
 }
 
-.performance {
-    flex: 1;
-    line-height: 1;
-}
-
 .piece {
     font-family: "Helvetica", sans-serif;
-    font-size: 11pt;
+    font-size: 10pt;
     width: 450px;
     margin: 0;
     text-align: justify;
+    height: 16px;
 }
 
 .piece:after {
@@ -116,20 +122,16 @@ label {
     display: inline-block;
 }
 
-.piece:not(:first-child){
-    margin-top: -11px;
-}
-
 .performer {
     font-family: "Helvetica", sans-serif;
-    font-size: 13pt;
+    font-size: 12pt;
     text-align: center;
-    margin-top: -13px;
+    height: 19px;
 }
 
 .test {
     font-family: "Helvetica", sans-serif;
-    font-size: 11pt;
+    font-size: 10pt;
     height: auto;
     width: auto;
     position: absolute;

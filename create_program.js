@@ -3,7 +3,6 @@ const title = document.getElementById("title");
 const title_font_family = document.getElementById('titleFontFamily');
 const title_font_size = document.getElementById('titleFontSize');
 const subtitle = document.getElementById('subtitle');
-const performances1 = document.getElementById('performances1');
 const footer = document.getElementById('footer');
 const footer_text = document.getElementById('footerText');
 const title_input = document.getElementById('titleInput');
@@ -16,10 +15,17 @@ const footer_input = document.getElementById("footerInput");
 const font_link_base = "http://fonts.googleapis.com/css?family=";
 
 // set ids on multiple pages
+const performances1 = document.getElementById('performances1');
 const performances2 = document.createElement('div');
 const performances3 = document.createElement('div');
 const performances4 = document.createElement('div');
 const performances = [performances1, performances2, performances3, performances4]
+
+for (let i = 0; i < performances.length; i++) {
+    performances[i].style.width = "450px";
+    performances[i].style.display = "flex";
+    performances[i].style.flexDirection = "column";
+}
 
 // # of program pages; if > 2 make booklet mode
 var num_pages = 1;
@@ -37,22 +43,17 @@ function checkOverflow(el) {
 }
 
 // move footer to new page
-function moveFooter(new_page) {
-    new_page.append(performances[current_page-2].lastChild);
-    new_page.appendChild(footer);
+function moveFooter(performance, page) {
+    performance.append(performances[current_page-2].lastChild);
+    page.appendChild(footer);
 }
 
 // if page is overflowing, move content to new page
 function newPage() {
     if (checkOverflow(document.getElementById(`page${current_page}`))) {
-        var title_height = title.offsetHeight;
+        var title_height = title.offsetHeight / 2;
         var subtitle_height = subtitle.offsetHeight;
-        var footer_height = footer.offsetHeight;
-        if (current_page != 1) {
-            var performance_height = 750 - 69 - title_height - subtitle_height - footer_height;
-        } else {
-            var performance_height = 750 - 69 - title_height - subtitle_height;
-        }
+        var performance_height = 750 - 69 - title_height - subtitle_height;
         document.getElementById(`page${current_page}`).style.visibility = "hidden";
         current_page += 1;
         var new_page = document.createElement('div');
@@ -60,9 +61,9 @@ function newPage() {
         new_page.className = "program-page layer";
         new_page.id = `page${current_page}`;
         new_page.append(performances[current_page-1]);
-        moveFooter(new_page);
         performances[current_page-1].id = `performances${current_page}`;
         performances[current_page-2].style.height = `${performance_height}px`;
+        moveFooter(performances[current_page-1], new_page);
     }
 }
 
@@ -78,7 +79,7 @@ var link = document.createElement('link');
 document.getElementsByTagName('head')[0].appendChild(link);
 link.setAttribute("rel", "stylesheet");
 link.setAttribute("type", "text/css");
-link.setAttribute("href", font_link_base + "ABeeZee");
+link.setAttribute("href", font_link_base + "Lobster+Two");
 
 function changeTitleFont(value) {
     link.setAttribute("href", font_link_base + value.split(" ").join("+"))
@@ -96,21 +97,26 @@ function changeTitleSize(value) {
     title.style.fontSize = value + "px";
 }
 
+title_font_family.value = "Lobster Two";
+title.style.fontFamily = "Lobster Two";
+title_font_size.value = "55";
+title.style.fontSize = "55px";
+
 title_input.addEventListener("input", () => {
     title.innerHTML = title_input.value;
-    newPage()
+    newPage();
 })
 
 // create subtitle(s)
 subtitle_input.addEventListener("input", () => {
     subtitle.innerHTML = subtitle_input.value.split(/\r?\n/).join("<br/>");
-    newPage()
+    newPage();
 })
 
 // create footer(s)
 footer_input.addEventListener("input", () => {
     footer_text.innerHTML = footer_input.value.split(/\r?\n/).join("<br/>");
-    newPage()
+    newPage();
 })
 
 // create performance info; change this to allow both editing and destruction
@@ -148,7 +154,7 @@ enter_performance.addEventListener("click", () => {
             text = piece + filler + composer;
             p.innerHTML = text;
             text_width = Math.ceil(p.clientWidth);
-            if (text_width > 450) {
+            if (text_width >= 450) {
                 filler = filler.slice(0, -3);
                 text = piece + filler + composer;
                 p.innerHTML = text;
@@ -166,4 +172,8 @@ enter_performance.addEventListener("click", () => {
     composer_input.value = '';
     performer_input.value = '';
     newPage();
-})
+});
+
+function togglePage(page) {
+
+}
