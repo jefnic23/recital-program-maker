@@ -20,6 +20,10 @@
     column-gap: 13px;
 }
 
+.navbar-brand {
+    float: left;
+}
+
 .icon_container {
     float: right;
     cursor: pointer;
@@ -206,4 +210,32 @@ hr.style2 {
 #printPreview canvas {
     display: block;
     margin: 1em auto;
+}
+
+@media (max-width: 992px) {
+    .icon {
+        display: none;
+    }
+
+    .hvr-grow {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    .icon_container > span {
+        font-size: 10pt;
+    }
+
+    #main {
+        flex-direction: column;
+    }
+
+    .input-container, .program-container {
+        margin: auto;
+    }
 }
