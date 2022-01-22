@@ -10,6 +10,7 @@ preview.onclick = () => {
 };
 
 function printProgram(prev=false) {
+    var pages = program.querySelectorAll('.program-page');
     var div = document.createElement('div');
     div.id = "print-program";
     div.style.height = '1700px';
@@ -17,11 +18,21 @@ function printProgram(prev=false) {
     var front = document.createElement('div');
     front.id = "frontPage";
     front.style.display = "flex";
-    var back = document.createElement('div');
-    back.id = "backPage";
-    back.style.display = "flex";
-    var pages = program.querySelectorAll('.program-page');
-    if (pages.length === 2) {
+
+    if (pages.length > 1) {
+        var back = document.createElement('div');
+        back.id = "backPage";
+        back.style.display = "flex";
+    }
+    
+    if (pages.length === 1) {
+        var page1 = document.getElementById(pages[0].id).cloneNode(true);
+        var page2 = document.getElementById(pages[0].id).cloneNode(true);
+        page1.style.borderRight = "1px solid #bbb";
+        front.appendChild(page1);
+        front.appendChild(page2);
+        div.append(front);
+    } else if (pages.length === 2) {
         for (let i = 0; i < pages.length; i++) {
             var page1 = document.getElementById(pages[i].id).cloneNode(true);
             var page2 = document.getElementById(pages[i].id).cloneNode(true);
@@ -55,8 +66,24 @@ function printProgram(prev=false) {
         back.appendChild(page2);
         back.appendChild(page3);
         div.append(back);
+    } else if (pages.length === 4) {
+        var page1 = document.getElementById(pages[0].id).cloneNode(true);
+        var page2 = document.getElementById(pages[1].id).cloneNode(true);
+        var page3 = document.getElementById(pages[2].id).cloneNode(true);
+        var page4 = document.getElementById(pages[3].id).cloneNode(true);
+        page1.style.visibility = "visible";
+        page2.style.visibility = "visible";
+        page2.style.borderRight = "1px solid #bbb";
+        page3.style.visibility = "visible";
+        page4.style.visibility = "visible";
+        page2.style.borderRight = "1px solid #bbb";
+        front.appendChild(page4);
+        front.appendChild(page1);
+        div.append(front);
+        back.appendChild(page2);
+        back.appendChild(page3);
+        div.append(back);
     }
-    
     document.body.appendChild(div);
 
     var pdf = new jspdf.jsPDF({
@@ -70,19 +97,25 @@ function printProgram(prev=false) {
         }
         var img = canvas.toDataURL("image/jpeg");
         pdf.addImage(img, 'JPEG', 0, 0, 11, 8.5);
-    });
-    html2canvas(document.getElementById('backPage'), {scale: 4}).then((canvas) => {
-        if (prev) {
-            print_preview.appendChild(canvas);
-        }
-        var img = canvas.toDataURL("image/jpeg");
-        pdf.addPage();
-        pdf.addImage(img, 'JPEG', 0, 0, 11, 8.5);
-        if (!prev) {
+        if (pages.length === 1 && !prev) {
             pdf.autoPrint({variant: 'non-conform'});
             window.open(pdf.output('bloburl'), '_blank');
         }
     });
+    if (pages.length > 1) {
+        html2canvas(document.getElementById('backPage'), {scale: 4}).then((canvas) => {
+            if (prev) {
+                print_preview.appendChild(canvas);
+            }
+            var img = canvas.toDataURL("image/jpeg");
+            pdf.addPage();
+            pdf.addImage(img, 'JPEG', 0, 0, 11, 8.5);
+            if (!prev) {
+                pdf.autoPrint({variant: 'non-conform'});
+                window.open(pdf.output('bloburl'), '_blank');
+            }
+        });
+    }
     document.body.removeChild(div);
     if (prev) {
         document.getElementById("overlay").style.display = "block";
