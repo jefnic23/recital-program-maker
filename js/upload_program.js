@@ -93,8 +93,8 @@ function readUpload(event) {
                     newPage(upload=true);
                 }
             }
-            var performance_height = performances[current_page-1].offsetHeight + ((750 - performances[current_page-1].offsetHeight - footer.offsetHeight) / 2);
-            performances[current_page-1].style.height = `${performance_height}px`        
+            // var performance_height = performances[current_page-1].offsetHeight + ((750 - performances[current_page-1].offsetHeight - footer.offsetHeight) / 2);
+            // performances[current_page-1].style.height = `${performance_height}px`        
         }
         r.readAsText(f);   
     }

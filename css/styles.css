@@ -13,7 +13,6 @@
 .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
-    cursor: pointer;
 }
 
 .navbar-nav {
@@ -23,6 +22,7 @@
 
 .icon_container {
     float: right;
+    cursor: pointer;
 }
 
 .icon_container > span {
@@ -73,6 +73,10 @@ hr.style2 {
 
 #program {
     display: grid;
+}
+
+#navTabs {
+    position: fixed;
 }
 
 .program-page {
@@ -173,17 +177,12 @@ hr.style2 {
     cursor: pointer; /* Add a pointer on hover */
 }
 
-#overlayText {
+.overlay-text {
     text-align: center;
     top: 8px;
-    position: -webkit-sticky;
-    position: sticky;
+    position: absolute;
+    width: 100%;
     color: #fff;
-    text-shadow:
-        -1px -1px 0 #000,  
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
     animation: text-pulse 1.5s infinite ease-out;
 }
 
@@ -201,7 +200,7 @@ hr.style2 {
 
 #printPreview {
     position: static;
-    margin-top: 34px;
+    margin-top: 56.5px;
 }
 
 #printPreview canvas {

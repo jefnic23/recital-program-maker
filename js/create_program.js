@@ -69,6 +69,10 @@ function newPage(upload=false) {
         } else {
             document.getElementById(`page${current_page-1}`).style.visibility = "hidden";
         }
+
+        if (current_page === 3 || current_page === 4) {
+            performances[current_page-2].style.height = '750px';
+        }
     }
 }
 
@@ -179,6 +183,7 @@ enter_performance.addEventListener("click", () => {
     newPage();
 });
 
-function togglePage(page) {
+// need to make tabs that toggle page visibility
+// function togglePage(page) {
 
-}
+// }
