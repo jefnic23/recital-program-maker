@@ -4,7 +4,7 @@ function keyExists(obj, key) {
 
 function readUpload(event) {
     var f = event.target.files[0];
-    if (f) {
+    if (f && f.type === "text/csv") {
         var r = new FileReader();
         r.onload = (e) => {
             var contents = e.target.result;
@@ -97,6 +97,8 @@ function readUpload(event) {
             // performances[current_page-1].style.height = `${performance_height}px`        
         }
         r.readAsText(f);   
+    } else {
+        window.alert('Please upload a .csv or .tsv file');
     }
 }
 
