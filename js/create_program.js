@@ -12,7 +12,7 @@ const composer_input = document.getElementById("composerInput");
 const performer_input = document.getElementById("performerInput");
 const enter_performance = document.getElementById("enterPerformance");
 const footer_input = document.getElementById("footerInput");
-const font_link_base = "http://fonts.googleapis.com/css?family=";
+const font_link_base = "https://fonts.googleapis.com/css?family=";
 
 // set ids on multiple pages
 const performances1 = document.getElementById('performances1');
