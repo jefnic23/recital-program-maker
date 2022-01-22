@@ -1,4 +1,5 @@
 const program = document.getElementById('program');
+const header = document.getElementById('header');
 const title = document.getElementById("title");
 const title_font_family = document.getElementById('titleFontFamily');
 const title_font_size = document.getElementById('titleFontSize');
@@ -51,9 +52,8 @@ function moveFooter(performance, page) {
 // if page is overflowing, move content to new page
 function newPage(upload=false) {
     if (checkOverflow(document.getElementById(`page${current_page}`))) {
-        var title_height = title.offsetHeight / 2;
-        var subtitle_height = subtitle.offsetHeight;
-        var performance_height = 750 - 69 - title_height - subtitle_height;
+        var header_height = header.offsetHeight;
+        var performance_height = 750 - 69 - header_height;
         current_page += 1;
         var new_page = document.createElement('div');
         program.appendChild(new_page);
