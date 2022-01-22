@@ -56,5 +56,5 @@ function on() {
   
 function off() {
     document.getElementById("overlay").style.display = "none";
+    print_preview.innerHTML = '';
 }
-

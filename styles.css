@@ -159,6 +159,8 @@ hr.style2 {
 
 #overlay {
     position: fixed; /* Sit on top of the page content */
+    overflow-y: scroll;
+    overflow-x: hidden;
     display: none; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
@@ -169,4 +171,40 @@ hr.style2 {
     background-color: rgba(0,0,0,0.5); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
+}
+
+#overlayText {
+    text-align: center;
+    top: 8px;
+    position: -webkit-sticky;
+    position: sticky;
+    color: #fff;
+    text-shadow:
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    animation: text-pulse 1.5s infinite ease-out;
+}
+
+@keyframes text-pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#printPreview {
+    position: static;
+    margin-top: 34px;
+}
+
+#printPreview canvas {
+    display: block;
+    margin: 1em auto;
 }
