@@ -36,17 +36,21 @@ function readUpload(event) {
                     if (keyExists(details.performers, performer)) {
                         details.performers[performer].pieces.push(line[3]);
                         details.performers[performer].composers.push(line[4]);
+                        details.performers[performer].accompanist = line[6].replace(/[\r\n]+/gm, '');
                     } else {
                         var new_performance = {
                             pieces: [],
-                            composers: []
+                            composers: [],
+                            accompanist: ''
                         };
                         new_performance.pieces.push(line[3]);
                         new_performance.composers.push(line[4]);
+                        new_performance.accompanist = line[6].replace(/[\r\n]+/gm, '');
                         details.performers[performer] = new_performance;
                     }
                 }
             }
+            console.log(details);
             title.innerHTML = details.title;
             title_input.value = title.innerHTML;
             subtitle.innerHTML = details.subtitle.split(/\r?\n/).join("<br/>");
@@ -89,6 +93,9 @@ function readUpload(event) {
                     div.appendChild(p);
                     p.className = "performer";
                     var perf_name = performer || 'John/Jane Doe';
+                    if (details.performers[performer].accompanist) {
+                        perf_name = perf_name + '<br>' + details.performers[performer].accompanist;
+                    }
                     p.innerHTML = "<i>" + perf_name + "</i>";
                     newPage(upload=true);
                 }

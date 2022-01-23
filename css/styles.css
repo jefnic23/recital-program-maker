@@ -24,6 +24,10 @@
     float: left;
 }
 
+.navbar {
+    min-height: 40px;
+}
+
 .icon_container {
     float: right;
     cursor: pointer;
@@ -71,7 +75,6 @@ hr.style2 {
 }
 
 .inputs {
-    margin-top: 2rem;
     margin-left: 2rem;
 }
 
@@ -138,10 +141,10 @@ hr.style2 {
 .piece {
     font-family: "Helvetica", sans-serif;
     font-size: 10pt;
-    width: 450px;
     margin: 0;
     text-align: justify;
     height: 16px;
+    line-height: 1;
 }
 
 .piece:after {
@@ -152,9 +155,9 @@ hr.style2 {
 
 .performer {
     font-family: "Helvetica", sans-serif;
-    font-size: 12pt;
+    font-size: 11pt;
     text-align: center;
-    height: 19px;
+    line-height: 1;
 }
 
 .test {
@@ -237,6 +240,10 @@ hr.style2 {
     }
 
     .input-container, .program-container {
+        margin: auto;
+    }
+
+    .inputs {
         margin: auto;
     }
 }

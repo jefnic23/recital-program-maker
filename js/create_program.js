@@ -175,7 +175,7 @@ enter_performance.addEventListener("click", () => {
     var p = document.createElement("p");
     div.appendChild(p);
     p.className = "performer";
-    var perf_name = performer_input.value.trim() || 'John/Jane Doe';
+    var perf_name = performer_input.value.split(/\r?\n/).join('<br>') || 'John/Jane Doe';
     p.innerHTML = "<i>" + perf_name + "</i>";
     piece_input.value = '';
     composer_input.value = '';
