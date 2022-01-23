@@ -50,7 +50,6 @@ function readUpload(event) {
                     }
                 }
             }
-            console.log(details);
             title.innerHTML = details.title;
             title_input.value = title.innerHTML;
             subtitle.innerHTML = details.subtitle.split(/\r?\n/).join("<br/>");

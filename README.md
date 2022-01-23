@@ -8,3 +8,4 @@ TO DO
 3. Fix long titles (reduce font size if width > 450)
 4. Adjust performance section height if only 1 or 2 performances bleed over into next page
 5. Add help section
+6. Add more horizontal line styles
