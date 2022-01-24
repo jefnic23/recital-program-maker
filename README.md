@@ -8,8 +8,8 @@ Supported browsers: Chrome, Firefox
 - Toggle "Place performer(s) on top" to swap the positions of performers and pieces
 
 ## How-To
--Upload a spreadsheet:
-- grab the template from [this link](https://docs.google.com/spreadsheets/d/1CK7CRbGqo_S3vZ2KLCFBSKyBFl5XKLUXu73X-q1-2aI/edit#gid=0)
+Upload a spreadsheet:
+- grab the template from <a href="https://docs.google.com/spreadsheets/d/1CK7CRbGqo_S3vZ2KLCFBSKyBFl5XKLUXu73X-q1-2aI/edit#gid=0" target="_blank">this link</a>.
 - there is an example tab at the bottom showing how to fill out the template
 - copy the template to your Google drive, or download a copy to your device
 - make sure to download it as a .csv file
@@ -27,5 +27,5 @@ When using the preview option, the image is slightly distorted. For a clearer im
 - [ ] Adjust performance section height if only 1 or 2 performances bleed over into next page
 - [ ] Add help section (basic usage, etc.)
 - [ ] Add more horizontal line styles
-- [ ] Mobile compatibility
+- [x] Mobile compatibility
 - [ ] Implement dropzone

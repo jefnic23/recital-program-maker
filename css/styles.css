@@ -53,11 +53,40 @@ input[type='file'] {
 .main-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    column-gap: 3em;
 }
 
-.input-container, .program-container {
+form label {
+    padding-left: 12px;
+}
+
+.input-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inline-group-one {
     flex: 0 0 auto;
     width: 50%;
+    padding-right: 8px;
+    margin: auto;
+}
+
+.inline-group-two {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+.input-container {
+    width: 40%;
+    flex: 0 0 auto;
+}
+
+.program-container {
+    width: 550px;
+    flex: 0 0 auto;
 }
 
 .form-group {
@@ -82,10 +111,6 @@ hr.style2 {
 
 .inputs label {
     font-weight: bold;
-}
-
-.inputs {
-    margin-left: 2rem;
 }
 
 #editPerformanceContainer {
@@ -301,10 +326,37 @@ hr.style2 {
     margin: 1em auto;
 }
 
+@media (max-width: 1256px) {
+    .inline-group {
+        flex-direction: column;
+    }
+
+    .inline-group-one {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+
+    .inline-group-two {
+        width: 100%;
+    }
+
+    #enterPerformanceContainer {
+        text-align: center;
+    }
+}
+
 @media (max-width: 992px) {
     .input-container, .program-container {
         width: 100%;
         margin: 0;
+        padding: 0;
+    }
+
+    .program-container {
+        width: 100%;
+        max-width: 550px;
+        margin: auto;
         padding: 0;
     }
 

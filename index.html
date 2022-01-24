@@ -78,54 +78,54 @@
             <div id="main" class="main-container">
                 <div class="input-container">
                     <form class="inputs">
-                        <div class="row form-group">
+                        <div class="input-row form-group">
                             <label for="titleInput">Program title</label>
                             <input class="form-control" id="titleInput" type="text" placeholder="enter the title for your recital" autofocus>
                         </div>
-                        <div class="row form-inline">
-                            <div class="col-8">
-                                <label for="titleFontFamily" style="padding-left: 12px;">Font</label>
+                        <div class="input-row form-inline">
+                            <div class="col-8" style="padding-right: 8px;">
+                                <label for="titleFontFamily">Font</label>
                                 <select size="5" id="titleFontFamily" class="form-select form-select-sm" value='Lobster Two' onchange="changeTitleFont(this.value)"></select>
                             </div>
                             <div class="col-4">
-                                <label for="titleFontSize" style="padding-left: 12px;">Size</label>
+                                <label for="titleFontSize">Size</label>
                                 <select size="5" id="titleFontSize" class="form-select form-select-sm"  value='55' onchange="changeTitleSize(this.value)"></select>
                             </div>
                         </div>
                         <hr style="margin-top: 21px; margin-bottom: 21px;"/>
-                        <div class="row form-group">
+                        <div class="input-row form-group">
                             <label for="subtitleInput">Subtitle</label>
                             <textarea class="form-control" id="subtitleInput" type="text" placeholder="enter subtitle(s), if any"></textarea>
                         </div>
                         <hr style="margin-top: 21px; margin-bottom: 21px;"/>
-                        <div class="row form-group">
-                            <div class='col-6' style="padding-left: 0;">
-                                <label for="pieceInput" style="padding-left: 12px;">Piece title</label>
+                        <div class="input-row form-group inline-group">
+                            <div class='inline-group-one'>
+                                <label for="pieceInput">Piece title</label>
                                 <textarea class="form-control" id="pieceInput" type="text" placeholder="enter composition title(s)"></textarea>
                             </div>
-                            <div class='col-6' style="padding-right: 0;">
-                                <label for="composerInput" style="padding-left: 12px;">Composer</label>
+                            <div class='inline-group-two'>
+                                <label for="composerInput">Composer</label>
                                 <textarea class="form-control" id="composerInput" type="text" placeholder="enter composer name(s)"></textarea>
                             </div>
                         </div>
-                        <div class="row form-group">
+                        <div class="input-row form-group">
                             <label for="performerInput">Performer</label>
                             <textarea class="form-control" id="performerInput" type="text" placeholder="enter performer/accompanist name(s)"></textarea>
                         </div>
-                        <div class="row form-inline">
-                            <div id="enterPerformanceContainer" class="col">
-                                <button id="enterPerformance" type="button" class="btn btn-primary row">Enter performer info</button>
+                        <div class="input-row form-inline inline-group">
+                            <div id="enterPerformanceContainer" class="inline-group-one">
+                                <button id="enterPerformance" type="button" class="btn btn-primary">Enter performer info</button>
                             </div>
-                            <div id="editPerformanceContainer" class="col">
-                                <button id="editPerformance" type="button" class="btn btn-primary row">Edit performer info</button>
+                            <div id="editPerformanceContainer" class="inline-group-one">
+                                <button id="editPerformance" type="button" class="btn btn-primary">Edit performer info</button>
                             </div>
-                            <div class="col form-check form-switch" style="margin: auto;">
+                            <div class="input-row form-check form-switch" style="margin: auto;">
                                 <label class="form-check-label" for="togglePerformers">Place performer(s) on top</label>
                                 <input class="form-check-input" id="togglePerformers" type="checkbox" value="" onclick="switchPerformers()">
                             </div>
                         </div>
                         <hr style="margin-top: 21px; margin-bottom: 21px;"/>
-                        <div class="row form-group">
+                        <div class="input-row form-group">
                             <label for="footerInput">Footer</label>
                             <textarea class="form-control" id="footerInput" type="text" placeholder="enter footer(s), if any"></textarea>
                         </div>
