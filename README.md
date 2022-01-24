@@ -9,7 +9,7 @@ Supported browsers: Chrome, Firefox
 
 ## How-To
 Upload a spreadsheet:
-- grab the template from <a href="https://docs.google.com/spreadsheets/d/1CK7CRbGqo_S3vZ2KLCFBSKyBFl5XKLUXu73X-q1-2aI/edit#gid=0" target="_blank">this link</a>.
+- grab the template from [this link](https://docs.google.com/spreadsheets/d/1CK7CRbGqo_S3vZ2KLCFBSKyBFl5XKLUXu73X-q1-2aI/edit#gid=0)
 - there is an example tab at the bottom showing how to fill out the template
 - copy the template to your Google drive, or download a copy to your device
 - make sure to download it as a .csv file
