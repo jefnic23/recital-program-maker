@@ -58,9 +58,26 @@ function readUpload(event) {
             footer_input.value = footer_text.innerHTML;
             for (performer in details.performers) {
                 if (details.performers.hasOwnProperty(performer)) {
-                    var div = document.createElement('div');
-                    performances[current_page-1].appendChild(div);
+                    var container = document.createElement('div');
+                    container.className = "performance-container";
+                    getCurrentPage().appendChild(container);
+                
+                    var move_div = document.createElement('div');
+                    move_div.className = "move-performance";
+                    var up_span = document.createElement('span');
+                    up_span.className = "arrow-up hvr-grow";
+                    up_span.setAttribute('onclick', "moveUp(this)")
+                    move_div.appendChild(up_span);
+                    var down_span = document.createElement('span');
+                    down_span.className = "arrow-down hvr-grow";
+                    down_span.setAttribute('onclick', "moveDown(this)")
+                    move_div.appendChild(down_span);
+                    container.appendChild(move_div);
+
+                    var div = document.createElement("div");
                     div.className = 'performance';
+                    container.appendChild(div);
+
                     var pieces = details.performers[performer].pieces;
                     var composers = details.performers[performer].composers;
                     for (let i = 0; i < pieces.length; i++) {
@@ -89,13 +106,32 @@ function readUpload(event) {
                         p.className = "piece";
                     }
                     var p = document.createElement("p");
-                    div.appendChild(p);
+                    if (switch_performers.checked) {
+                        div.prepend(p);
+                    } else {
+                        div.appendChild(p);
+                    }
                     p.className = "performer";
                     var perf_name = performer || 'John/Jane Doe';
                     if (details.performers[performer].accompanist) {
                         perf_name = perf_name + '<br>' + details.performers[performer].accompanist;
                     }
                     p.innerHTML = "<i>" + perf_name + "</i>";
+
+                    var edit_div = document.createElement('div');
+                    edit_div.className = "edit-performance";
+                    var edit_img = document.createElement('img');
+                    edit_img.setAttribute('src', "img/edit-solid.png");
+                    edit_img.setAttribute('onclick', 'editElement(this)');
+                    edit_img.className = "hvr-grow";
+                    edit_div.appendChild(edit_img);
+                    var delete_img = document.createElement('img');
+                    delete_img.setAttribute('src', 'img/trash-solid.png');
+                    delete_img.setAttribute('onclick', 'deleteElement(this)');
+                    delete_img.className = "hvr-grow";
+                    edit_div.appendChild(delete_img);
+                    container.appendChild(edit_div);
+
                     newPage(upload=true);
                 }
             }
