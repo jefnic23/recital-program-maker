@@ -1,7 +1,9 @@
 # Recital Program Maker
 Create neatly formatted recital programs quickly and easily
 
-Supported browsers: Chrome, Firefox
+**Supported browsers**: Chrome, Firefox
+
+**Note**: there is an issue with the way the program looks on smaller devices. This is being worked on, but programs will still print properly formatted (you can use "Preview" to confirm this).
 
 ## New features:
 - Hover over program entries for options to move, edit, and delete
