@@ -60,7 +60,7 @@ function readUpload(event) {
                 if (details.performers.hasOwnProperty(performer)) {
                     var container = document.createElement('div');
                     container.className = "performance-container";
-                    getCurrentPage().appendChild(container);
+                    getCurrentPerformances().appendChild(container);
                 
                     var move_div = document.createElement('div');
                     move_div.className = "move-performance";
@@ -134,9 +134,7 @@ function readUpload(event) {
 
                     newPage(upload=true);
                 }
-            }
-            // var performance_height = performances[current_page-1].offsetHeight + ((750 - performances[current_page-1].offsetHeight - footer.offsetHeight) / 2);
-            // performances[current_page-1].style.height = `${performance_height}px`        
+            }      
         }
         r.readAsText(f);   
     } else {

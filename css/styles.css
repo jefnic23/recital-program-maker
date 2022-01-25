@@ -81,11 +81,7 @@ form label {
 
 .input-container {
     width: 40%;
-    flex: 0 0 auto;
-}
-
-.program-container {
-    width: 550px;
+    max-width: 550px;
     flex: 0 0 auto;
 }
 
@@ -117,16 +113,21 @@ hr.style2 {
     display: none;
 }
 
-#program {
-    display: grid;
-}
-
 #navTabs {
     position: fixed;
 }
 
-.program-page {
+.program-container {
     position: relative;
+    width: 550px;
+    height: 850px;
+    flex: 0 0 auto;
+}
+
+.program-page {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
     width: 550px;
     height: 850px;
     padding: 50px;
@@ -135,15 +136,9 @@ hr.style2 {
     overflow: auto;
 }
 
-.layer {
-    grid-column: 1;
-    grid-row: 1;
-}
-
 #header {
     display: flex;
     flex-direction: column;
-    /* row-gap: 8px; */
 }
 
 #title {
@@ -161,7 +156,6 @@ hr.style2 {
 }
 
 #footer {
-    position: absolute;
     bottom: 50px;
     width: 450px;
     text-align: center;
@@ -174,18 +168,19 @@ hr.style2 {
 }
 
 .performances {
-    position: absolute; /* does this work? */
-    left: 0;
-    width: 550px;
+    transform: translateX(-50px);
     display: flex;
     flex-direction: column;
-    row-gap: 13px;
+    flex: 1 1 auto;
 }
 
 .performance-container {
     display: flex;
     flex-direction: row;
     width: 550px;
+    flex: 1 1 auto;
+    min-height: 50px;
+    max-height: 70px;
 }
 
 .performance-container .move-performance {

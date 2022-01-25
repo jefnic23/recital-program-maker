@@ -19,7 +19,6 @@ for (let i = 12; i <= 72; i++) {
     title_font_size.appendChild(option);
 }
 
-// create title
 title_input.addEventListener("input", () => {
     title.innerHTML = title_input.value;
     newPage();
@@ -37,6 +36,7 @@ footer_input.addEventListener("input", () => {
     newPage();
 })
 
+// add performer details
 enter_performance.addEventListener("click", () => {
     createPerformance();
 });

@@ -29,3 +29,5 @@ When using the preview option, the image is slightly distorted. For a clearer im
 - [ ] Add more horizontal line styles
 - [x] Mobile compatibility
 - [ ] Implement dropzone
+- [ ] Toggle page visibility !important
+- [ ] Cookies for saving programs?

@@ -17,7 +17,6 @@ const enter_perf_container = document.getElementById('enterPerformanceContainer'
 const edit_perf_container = document.getElementById('editPerformanceContainer');
 const switch_performers = document.getElementById("togglePerformers");
 const footer_input = document.getElementById("footerInput");
-
 const font_link_base = "https://fonts.googleapis.com/css?family=";
 
 // set ids on multiple pages
@@ -29,7 +28,7 @@ const performances = [performances1, performances2, performances3, performances4
 
 // # of program pages; if > 2 make booklet mode
 var num_pages = 1;
-var current_page = 1;
+
 
 // check if current page is overflowing
 function checkOverflow(el) {
@@ -98,7 +97,7 @@ function buildPerformance(div) {
 function createPerformance() {
     var container = document.createElement('div');
     container.className = "performance-container";
-    getCurrentPage().appendChild(container);
+    getCurrentPerformances().appendChild(container);
     
     var move_div = document.createElement('div');
     move_div.className = "move-performance";
@@ -151,42 +150,47 @@ function switchPerformers() {
 }
 
 // move footer to new page
-function moveFooter(performance, page) {
-    performance.append(performances[current_page-2].lastChild);
-    page.appendChild(footer);
+function moveFooter(performances, previous_page, new_page) {
+    performances.append(previous_page.lastChild);
+    new_page.appendChild(footer);
 }
 
 // if page is overflowing, move content to new page
 function newPage(upload=false) {
-    if (checkOverflow(document.getElementById(`page${current_page}`))) {
-        var header_height = header.offsetHeight;
-        var performance_height = 750 - 69 - header_height;
-        current_page += 1;
+    if (checkOverflow(getCurrentPage())) {
         var new_page = document.createElement('div');
+        new_page.className = "program-page";
+        var new_performances = document.createElement('div');
+        new_performances.className = "performances";
+        new_page.appendChild(new_performances)
         program.appendChild(new_page);
-        new_page.className = "program-page layer";
-        new_page.id = `page${current_page}`;
-        new_page.append(performances[current_page-1]);
-        performances[current_page-1].id = `performances${current_page}`;
-        performances[current_page-2].style.height = `${performance_height}px`;
-        moveFooter(performances[current_page-1], new_page);
+        
+        var previous_page = getPreviousPage();
+        var current_page = getCurrentPage();
+        moveFooter(new_performances, previous_page, new_page);
 
         if (upload) {
-            document.getElementById(`page${current_page}`).style.visibility = "hidden";
+            current_page.style.visibility = "hidden";
         } else {
-            document.getElementById(`page${current_page-1}`).style.visibility = "hidden";
+            previous_page.style.visibility = "hidden";
         }
-
-        if (current_page === 3 || current_page === 4) {
-            performances[current_page-2].style.height = '750px';
-        }
+        // move last element from previous page to new page
     }
 }
 
-// returns currently active program page
 function getCurrentPage() {
+    let page_list = document.getElementsByClassName('program-page');
+    return page_list[page_list.length-1];
+}
+
+function getPreviousPage() {
+    let page_list = document.getElementsByClassName('program-page');
+    return page_list[page_list.length-2];
+}
+
+function getCurrentPerformances() {
     let performance_list = document.getElementsByClassName('performances');
-    return performance_list[performance_list.length - 1];
+    return performance_list[performance_list.length-1];
 }
 
 // moves performance container up
@@ -210,7 +214,6 @@ function editElement(e) {
     var performance = e.parentNode.previousSibling;
     var pieces = performance.querySelectorAll('.piece');
     var performers = performance.querySelectorAll('.performer');
-    console.log(performance);
 
     piece_input.value = '';
     composer_input.value = '';

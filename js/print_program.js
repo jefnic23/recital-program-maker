@@ -25,20 +25,27 @@ function printProgram(prev=false) {
         back.style.display = "flex";
     }
     
+    // change ids to array index
     if (pages.length === 1) {
-        var page1 = document.getElementById(pages[0].id).cloneNode(true);
-        var page2 = document.getElementById(pages[0].id).cloneNode(true);
+        var page1 = pages[0].cloneNode(true);
+        var page2 = pages[0].cloneNode(true);
         page1.style.borderRight = "1px solid #bbb";
+        page1.style.marginRight = "-1px";
+        page1.style.position = "relative";
+        page2.style.position = "relative";
         front.appendChild(page1);
         front.appendChild(page2);
         div.append(front);
     } else if (pages.length === 2) {
         for (let i = 0; i < pages.length; i++) {
-            var page1 = document.getElementById(pages[i].id).cloneNode(true);
-            var page2 = document.getElementById(pages[i].id).cloneNode(true);
+            var page1 = pages[i].cloneNode(true);
+            var page2 = pages[i].cloneNode(true);
             page1.style.visibility = "visible";
             page2.style.visibility = "visible";
             page1.style.borderRight = "1px solid #bbb";
+            page1.style.marginRight = "-1px";
+            page1.style.position = "relative";
+            page2.style.position = "relative";
             if (i === 0) {
                 front.appendChild(page1);
                 front.appendChild(page2);
@@ -50,9 +57,9 @@ function printProgram(prev=false) {
             }
         }
     } else if (pages.length === 3) {
-        var page1 = document.getElementById(pages[0].id).cloneNode(true);
-        var page2 = document.getElementById(pages[1].id).cloneNode(true);
-        var page3 = document.getElementById(pages[2].id).cloneNode(true);
+        var page1 = pages[0].cloneNode(true);
+        var page2 = pages[1].cloneNode(true);
+        var page3 = pages[2].cloneNode(true);
         var blank_page = document.createElement('div');
         page1.style.visibility = "visible";
         page2.style.visibility = "visible";
@@ -67,10 +74,10 @@ function printProgram(prev=false) {
         back.appendChild(page3);
         div.append(back);
     } else if (pages.length === 4) {
-        var page1 = document.getElementById(pages[0].id).cloneNode(true);
-        var page2 = document.getElementById(pages[1].id).cloneNode(true);
-        var page3 = document.getElementById(pages[2].id).cloneNode(true);
-        var page4 = document.getElementById(pages[3].id).cloneNode(true);
+        var page1 = pages[0].cloneNode(true);
+        var page2 = pages[1].cloneNode(true);
+        var page3 = pages[2].cloneNode(true);
+        var page4 = pages[3].cloneNode(true);
         page1.style.visibility = "visible";
         page2.style.visibility = "visible";
         page2.style.borderRight = "1px solid #bbb";
