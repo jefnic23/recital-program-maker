@@ -10,6 +10,7 @@ preview.onclick = () => {
 };
 
 function printProgram(prev=false) {
+    // if new page doesn't meet threshold, add x items from previous page to new page
     var pages = program.querySelectorAll('.program-page');
     var div = document.createElement('div');
     div.id = "print-program";
@@ -30,7 +31,6 @@ function printProgram(prev=false) {
         var page1 = pages[0].cloneNode(true);
         var page2 = pages[0].cloneNode(true);
         page1.style.borderRight = "1px solid #bbb";
-        page1.style.marginRight = "-1px";
         page1.style.position = "relative";
         page2.style.position = "relative";
         front.appendChild(page1);
@@ -43,7 +43,6 @@ function printProgram(prev=false) {
             page1.style.visibility = "visible";
             page2.style.visibility = "visible";
             page1.style.borderRight = "1px solid #bbb";
-            page1.style.marginRight = "-1px";
             page1.style.position = "relative";
             page2.style.position = "relative";
             if (i === 0) {
@@ -83,7 +82,7 @@ function printProgram(prev=false) {
         page2.style.borderRight = "1px solid #bbb";
         page3.style.visibility = "visible";
         page4.style.visibility = "visible";
-        page2.style.borderRight = "1px solid #bbb";
+        page4.style.borderRight = "1px solid #bbb";
         front.appendChild(page4);
         front.appendChild(page1);
         div.append(front);

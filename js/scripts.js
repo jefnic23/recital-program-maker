@@ -19,17 +19,6 @@ const switch_performers = document.getElementById("togglePerformers");
 const footer_input = document.getElementById("footerInput");
 const font_link_base = "https://fonts.googleapis.com/css?family=";
 
-// set ids on multiple pages
-const performances1 = document.getElementById('performances1');
-const performances2 = document.createElement('div');
-const performances3 = document.createElement('div');
-const performances4 = document.createElement('div');
-const performances = [performances1, performances2, performances3, performances4]
-
-// # of program pages; if > 2 make booklet mode
-var num_pages = 1;
-
-
 // check if current page is overflowing
 function checkOverflow(el) {
     var current_overflow = el.style.overflow;
@@ -158,10 +147,12 @@ function moveFooter(performances, previous_page, new_page) {
 // if page is overflowing, move content to new page
 function newPage(upload=false) {
     if (checkOverflow(getCurrentPage())) {
+        getCurrentPerformances().classList.remove('last-page');
+
         var new_page = document.createElement('div');
         new_page.className = "program-page";
         var new_performances = document.createElement('div');
-        new_performances.className = "performances";
+        new_performances.className = "performances last-page";
         new_page.appendChild(new_performances)
         program.appendChild(new_page);
         
@@ -174,7 +165,7 @@ function newPage(upload=false) {
         } else {
             previous_page.style.visibility = "hidden";
         }
-        // move last element from previous page to new page
+        
     }
 }
 
@@ -195,17 +186,22 @@ function getCurrentPerformances() {
 
 // moves performance container up
 function moveUp(e) {
+    var performance = e.parentNode.parentNode;
     var sibling = e.parentNode.parentNode.previousSibling;
+    var container = performance.parentNode;
     if (sibling) {
-        e.parentNode.parentNode.parentNode.insertBefore(e.parentNode.parentNode, sibling);
+        container.insertBefore(performance, sibling);
     }
 }
 
 // moves performance container down
 function moveDown(e) {
-    var sibling = e.parentNode.parentNode.nextSibling;
+    var performance = e.parentNode.parentNode;
+    var sibling = performance.nextSibling;
+    var container = performance.parentNode;
+    var page = container.parentNode;
     if (sibling) {
-        e.parentNode.parentNode.parentNode.insertBefore(sibling, e.parentNode.parentNode);
+        container.insertBefore(sibling, performance);
     }
 }
 
@@ -247,4 +243,8 @@ function editElement(e) {
 // remove performance element upon clicking trash icon
 function deleteElement(e) {
     e.parentNode.parentNode.remove();
+}
+
+function changeRowGap(val) {
+    root.style.setProperty("--row-gap", val + "px");
 }
