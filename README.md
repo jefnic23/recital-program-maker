@@ -3,9 +3,6 @@ I find formatting recital programs in word processors to be tedious, even with p
 
 **Supported browsers**: Chrome, Firefox
 
-**Note**: 
-
-
 ## New features
 - Hover over program entries for options to move, edit, and delete
 - Toggle "Place performer(s) on top" to swap the positions of performers and pieces
