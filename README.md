@@ -2,12 +2,9 @@
 I find formatting recital programs in word processors to be tedious, even with pre-formatted templates. Things still never line up *quite* perfectly after extensive tweaking anyways. So, I created this app to take care of all that busy work. The idea is: enter all the information for your recital and it will spit out a perfectly formatted program. No tweaking margins, spacing, or anything! 
 
 
-<<<<<<< HEAD
 **Supported browsers**: Chrome, Firefox
 
 
-=======
->>>>>>> 945547a18c03f127849e5d0f083dd05537620b81
 ## New features
 - Hover over program entries for options to move, edit, and delete
 - Toggle "Place performer(s) on top" to swap the positions of performers and pieces
