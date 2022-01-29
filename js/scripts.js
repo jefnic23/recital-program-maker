@@ -199,7 +199,6 @@ function moveDown(e) {
     var performance = e.parentNode.parentNode;
     var sibling = performance.nextSibling;
     var container = performance.parentNode;
-    var page = container.parentNode;
     if (sibling) {
         container.insertBefore(sibling, performance);
     }

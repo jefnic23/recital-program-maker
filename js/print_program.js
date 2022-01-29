@@ -30,8 +30,7 @@ function printProgram(prev=false) {
     if (pages.length === 1) {
         var page1 = pages[0].cloneNode(true);
         var page2 = pages[0].cloneNode(true);
-        page1.style.borderRight = "1px solid #bbb";
-        page1.style.position = "relative";
+        page1.classList.add("printable");
         page2.style.position = "relative";
         front.appendChild(page1);
         front.appendChild(page2);
@@ -42,8 +41,7 @@ function printProgram(prev=false) {
             var page2 = pages[i].cloneNode(true);
             page1.style.visibility = "visible";
             page2.style.visibility = "visible";
-            page1.style.borderRight = "1px solid #bbb";
-            page1.style.position = "relative";
+            page1.classList.add("printable");
             page2.style.position = "relative";
             if (i === 0) {
                 front.appendChild(page1);
@@ -62,10 +60,10 @@ function printProgram(prev=false) {
         var blank_page = document.createElement('div');
         page1.style.visibility = "visible";
         page2.style.visibility = "visible";
-        page2.style.borderRight = "1px solid #bbb";
+        page2.classList.add("printable");
         page3.style.visibility = "visible";
         blank_page.className = "program-page layer";
-        blank_page.style.borderRight = "1px solid #bbb";
+        blank_page.classList.add("printable");
         front.appendChild(blank_page);
         front.appendChild(page1);
         div.append(front);
@@ -79,10 +77,10 @@ function printProgram(prev=false) {
         var page4 = pages[3].cloneNode(true);
         page1.style.visibility = "visible";
         page2.style.visibility = "visible";
-        page2.style.borderRight = "1px solid #bbb";
+        page2.classList.add("printable");
         page3.style.visibility = "visible";
         page4.style.visibility = "visible";
-        page4.style.borderRight = "1px solid #bbb";
+        page4.classList.add("printable");
         front.appendChild(page4);
         front.appendChild(page1);
         div.append(front);
@@ -103,6 +101,10 @@ function printProgram(prev=false) {
         }
         var img = canvas.toDataURL("image/jpeg");
         pdf.addImage(img, 'JPEG', 0, 0, 11, 8.5);
+        pdf.setDrawColor("#bbb");
+        pdf.setLineWidth(0.01);
+        pdf.setLineDashPattern([0.1, 0.1], 0);
+        pdf.line(5.5, 0, 5.5, 8.5);
         if (pages.length === 1 && !prev) {
             pdf.autoPrint({variant: 'non-conform'});
             window.open(pdf.output('bloburl'), '_blank');
@@ -116,6 +118,10 @@ function printProgram(prev=false) {
             var img = canvas.toDataURL("image/jpeg");
             pdf.addPage();
             pdf.addImage(img, 'JPEG', 0, 0, 11, 8.5);
+            pdf.setDrawColor("#bbb");
+            pdf.setLineWidth(0.01);
+            pdf.setLineDashPattern([0.1, 0.1], 0);
+            pdf.line(5.5, 0, 5.5, 8.5);
             if (!prev) {
                 pdf.autoPrint({variant: 'non-conform'});
                 window.open(pdf.output('bloburl'), '_blank');
