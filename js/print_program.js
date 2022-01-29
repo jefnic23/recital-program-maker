@@ -26,11 +26,12 @@ function printProgram(prev=false) {
         back.style.display = "flex";
     }
     
-    // change ids to array index
     if (pages.length === 1) {
         var page1 = pages[0].cloneNode(true);
         var page2 = pages[0].cloneNode(true);
-        page1.classList.add("printable");
+        page1.style.visibility = "visible";
+        page1.style.position = "relative";
+        page2.style.visibility = "visible";
         page2.style.position = "relative";
         front.appendChild(page1);
         front.appendChild(page2);
@@ -40,8 +41,8 @@ function printProgram(prev=false) {
             var page1 = pages[i].cloneNode(true);
             var page2 = pages[i].cloneNode(true);
             page1.style.visibility = "visible";
+            page1.style.position = "relative";
             page2.style.visibility = "visible";
-            page1.classList.add("printable");
             page2.style.position = "relative";
             if (i === 0) {
                 front.appendChild(page1);
@@ -60,10 +61,9 @@ function printProgram(prev=false) {
         var blank_page = document.createElement('div');
         page1.style.visibility = "visible";
         page2.style.visibility = "visible";
-        page2.classList.add("printable");
+        page2.style.position = "relative";
         page3.style.visibility = "visible";
         blank_page.className = "program-page layer";
-        blank_page.classList.add("printable");
         front.appendChild(blank_page);
         front.appendChild(page1);
         div.append(front);
@@ -77,10 +77,8 @@ function printProgram(prev=false) {
         var page4 = pages[3].cloneNode(true);
         page1.style.visibility = "visible";
         page2.style.visibility = "visible";
-        page2.classList.add("printable");
+        page2.style.position = "relative";
         page3.style.visibility = "visible";
-        page4.style.visibility = "visible";
-        page4.classList.add("printable");
         front.appendChild(page4);
         front.appendChild(page1);
         div.append(front);

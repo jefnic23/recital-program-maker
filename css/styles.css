@@ -329,11 +329,6 @@ hr.style2 {
     margin: 1em auto;
 }
 
-.printable {
-    position: relative;
-    visibility: visible;
-}
-
 @media (max-width: 1256px) {
     .inline-group {
         flex-direction: column;
