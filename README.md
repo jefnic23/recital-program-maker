@@ -6,6 +6,7 @@ I find formatting recital programs in word processors to be tedious, even with p
 
 
 ## New features
+- Highlight subtitle text to add bold, italic, and underline
 - Hover over program entries for options to move, edit, and delete
 - Toggle "Place performer(s) on top" to swap the positions of performers and pieces
 
@@ -21,9 +22,9 @@ I find formatting recital programs in word processors to be tedious, even with p
 
 
 ## Bugs
-There is an issue with the way the program looks on smaller devices. This is being worked on, but programs will still print properly formatted (you can use "Preview" to confirm this). It's also worth noting that "Preview" tends to slightly distort the image, but when you click "Print" you'll get a perfectly clear representation of the final product.
+- There is an issue with the way the program looks on smaller devices. This is being worked on, but programs will still print properly formatted (you can use "Preview" to confirm this). It's also worth noting that "Preview" tends to slightly distort the image, but when you click "Print" you'll get a perfectly clear representation of the final product.
 
-While it's possible to adjust the program order within a page, moving a performer to a different page breaks the print functionality and is thus disabled. If you need to swap the positions of performers that are on different pages, edit the entries instead and reenter their information in their new positions.
+- While it's possible to adjust the program order within a page, moving a performer to a different page breaks the print functionality and is thus disabled. If you need to swap the positions of performers that are on different pages, edit the entries instead and reenter their information in their new positions.
 
 
 ## TO DO

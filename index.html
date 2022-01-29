@@ -81,21 +81,33 @@
                         <div class="input-row form-group">
                             <label for="titleInput">Program title</label>
                             <input class="form-control" id="titleInput" type="text" placeholder="enter the title for your recital" autofocus>
-                        </div>
-                        <div class="input-row form-inline">
-                            <div class="col-8" style="padding-right: 8px;">
-                                <label for="titleFontFamily">Font</label>
-                                <select size="5" id="titleFontFamily" class="form-select form-select-sm" value='Lobster Two' onchange="changeTitleFont(this.value)"></select>
+                            <div class="input-row form-inline inline-group-four">
+                                <div style="width: 70%;">
+                                    <label for="titleFontFamily">Font</label>
+                                    <select size="5" id="titleFontFamily" class="form-select form-select-sm" value='Lobster Two' onchange="changeTitleFont(this.value)"></select>
+                                </div>
+                                <div style="width: 25%;">
+                                    <label for="titleFontSize">Size</label>
+                                    <select size="5" id="titleFontSize" class="form-select form-select-sm"  value='55' onchange="changeTitleSize(this.value)"></select>
+                                </div>
                             </div>
-                            <div class="col-4">
-                                <label for="titleFontSize">Size</label>
-                                <select size="5" id="titleFontSize" class="form-select form-select-sm"  value='55' onchange="changeTitleSize(this.value)"></select>
-                            </div>
                         </div>
+                        
                         <hr style="margin-top: 21px; margin-bottom: 21px;"/>
                         <div class="input-row form-group">
                             <label for="subtitleInput">Subtitle</label>
                             <textarea class="form-control" id="subtitleInput" type="text" placeholder="enter subtitle(s), if any"></textarea>
+                            <div class="input-row form-inline inline-group-three">
+                                <div id="makeBoldContainer" class="hvr-grow">
+                                    <button id="makeBold" type="button" class="btn btn-default" onclick="wrapText('<b>', '</b>')"><b>B</b></button>
+                                </div>
+                                <div id="makeItalicContainer" class="hvr-grow">
+                                    <button id="makeItalic" type="button" class="btn btn-default" onclick="wrapText('<i>', '</i>')"><i>I</i></button>
+                                </div>
+                                <div id="makeUnderlineContainer" class="hvr-grow">
+                                    <button id="makeUnderline" type="button" class="btn btn-default" onclick="wrapText('<u>', '</u>')"><u>U</u></button>
+                                </div>
+                            </div>
                         </div>
                         <hr style="margin-top: 21px; margin-bottom: 21px;"/>
                         <div class="input-row form-group inline-group">

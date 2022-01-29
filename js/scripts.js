@@ -247,3 +247,12 @@ function deleteElement(e) {
 function changeRowGap(val) {
     root.style.setProperty("--row-gap", val + "px");
 }
+
+function wrapText(openTag, closeTag) {
+    var len = subtitle_input.length;
+    var start = subtitle_input.selectionStart;
+    var end = subtitle_input.selectionEnd;
+    var selected = subtitle_input.value.substring(start, end);
+    var wrapped = openTag + selected + closeTag;
+    subtitle_input.value = subtitle_input.value.substring(0, start) + wrapped + subtitle_input.value.substring(end, len);
+}
