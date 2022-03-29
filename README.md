@@ -5,6 +5,9 @@ I find formatting recital programs in word processors to be tedious, even with p
 **Supported browsers**: Chrome, Firefox
 
 
+<a href="https://www.buymeacoffee.com/jefnic23" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+
+
 ## New features
 - Highlight subtitle text to add bold, italic, and underline
 - Hover over program entries for options to move, edit, and delete

@@ -18,14 +18,19 @@
 .navbar-nav {
     flex-direction: row;
     column-gap: 13px;
-}
-
-.navbar-brand {
-    float: left;
+    align-items: flex-start;
 }
 
 .navbar {
     min-height: 40px;
+}
+
+.brand-collapse {
+    display: none;
+}
+
+.brand-expand {
+    display: block;
 }
 
 .icon_container {
@@ -394,6 +399,14 @@ hr.style2 {
     .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
         -webkit-transform: scale(1);
         transform: scale(1);
+    }
+
+    .brand-collapse {
+        display: block;
+    }
+
+    .brand-expand {
+        display: none;
     }
 
     .icon_container > span {
