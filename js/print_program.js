@@ -60,10 +60,13 @@ function printProgram(prev=false) {
         var page3 = pages[2].cloneNode(true);
         var blank_page = document.createElement('div');
         page1.style.visibility = "visible";
+        page1.style.position = "relative";
         page2.style.visibility = "visible";
         page2.style.position = "relative";
         page3.style.visibility = "visible";
+        page3.style.position = "relative";
         blank_page.className = "program-page layer";
+        blank_page.style.position = "relative";
         front.appendChild(blank_page);
         front.appendChild(page1);
         div.append(front);
@@ -76,9 +79,13 @@ function printProgram(prev=false) {
         var page3 = pages[2].cloneNode(true);
         var page4 = pages[3].cloneNode(true);
         page1.style.visibility = "visible";
+        page1.style.position = "relative";
         page2.style.visibility = "visible";
         page2.style.position = "relative";
         page3.style.visibility = "visible";
+        page3.style.position = "relative";
+        page4.style.visibility = "visible";
+        page4.style.position = "relative";
         front.appendChild(page4);
         front.appendChild(page1);
         div.append(front);
@@ -104,7 +111,7 @@ function printProgram(prev=false) {
         pdf.setLineDashPattern([0.1, 0.1], 0);
         pdf.line(5.5, 0, 5.5, 8.5);
         if (pages.length === 1 && !prev) {
-            pdf.autoPrint({variant: 'non-conform'});
+            // pdf.autoPrint({variant: 'non-conform'});
             window.open(pdf.output('bloburl'), '_blank');
         }
     });
@@ -121,7 +128,7 @@ function printProgram(prev=false) {
             pdf.setLineDashPattern([0.1, 0.1], 0);
             pdf.line(5.5, 0, 5.5, 8.5);
             if (!prev) {
-                pdf.autoPrint({variant: 'non-conform'});
+                // pdf.autoPrint({variant: 'non-conform'});
                 window.open(pdf.output('bloburl'), '_blank');
             }
         });
