@@ -1,4 +1,5 @@
 const program = document.getElementById('program');
+const program_nav = document.getElementById('program-nav');
 const header = document.getElementById('header');
 const title = document.getElementById("title");
 const title_font_family = document.getElementById('titleFontFamily');
@@ -159,14 +160,32 @@ function newPage(upload=false) {
         var previous_page = getPreviousPage();
         var current_page = getCurrentPage();
         moveFooter(new_performances, previous_page, new_page);
+        previous_page.querySelector('.performances').style.justifyContent = "space-between";
 
+        let num_pages = document.querySelectorAll('.program-page').length
+        program_nav.children[num_pages-1].className = "";
+        
         if (upload) {
             current_page.style.visibility = "hidden";
         } else {
             previous_page.style.visibility = "hidden";
+            program_nav.children[num_pages-1].className = "active";
+            program_nav.children[num_pages-2].className = "";
         }
         
     }
+}
+
+function showPage(el, num) {
+    let pages = document.querySelectorAll('.program-page');
+    for (let i = 0; i < pages.length; i++) {
+        i === num ? pages[i].style.visibility = "visible" : pages[i].style.visibility = "hidden";
+    }
+    let pnav = document.querySelectorAll('#program-nav li');
+    Array.from(pnav).slice(0, pages.length).forEach(child => {
+        child.className = "";
+    });
+    el.className = "active";
 }
 
 function getCurrentPage() {

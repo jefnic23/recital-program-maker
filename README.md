@@ -29,15 +29,17 @@ I find formatting recital programs in word processors to be tedious, even with p
 
 - While it's possible to adjust the program order within a page, moving a performer to a different page breaks the print functionality and is thus disabled. If you need to swap the positions of performers that are on different pages, edit the entries instead and reenter their information in their new positions.
 
+- If you notice any issues or have any problems, please [reach out to me](mailto:jefnic23@gmail.com)! Or if you're saavy enough, you can make a pull request.
+
 
 ## TO DO
 - [x] Edit entries
 - [x] Provide option for placing student name above piece/composer
 - [ ] Fix long titles (reduce font size if width > 450)
 - [ ] Adjust performance section height if only 1 or 2 performances bleed over into next page
-- [ ] Add help section (basic usage, etc.)
+- [x] Add help section (basic usage, etc.)
 - [ ] Add more horizontal line styles
 - [x] Mobile compatibility
 - [ ] Implement dropzone
-- [ ] Toggle page visibility
+- [x] Toggle page visibility
 - [ ] Cookies for saving programs?

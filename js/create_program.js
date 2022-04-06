@@ -39,6 +39,7 @@ footer_input.addEventListener("input", () => {
 // add performer details
 enter_performance.addEventListener("click", () => {
     createPerformance();
+    piece_input.focus();
 });
 
 // need to make tabs that toggle page visibility
