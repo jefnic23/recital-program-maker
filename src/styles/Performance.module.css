@@ -1,0 +1,36 @@
+.performance_container {
+    display: flex;
+    flex-direction: row;
+    width: 550px;
+}
+
+.performance {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.performer {
+    font-family: Georgia, serif;
+    font-size: 11pt;
+    text-align: center;
+    line-height: 1;
+    margin: 0;
+}
+
+.edit_performance {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    row-gap: 8px;
+    align-items: center;
+}
+
+.move_performance {
+    display: flex;
+    flex-direction: column;
+    width: 50px;
+    margin: 0 auto;
+    row-gap: 8px;
+    align-items: center;
+}

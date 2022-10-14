@@ -1,0 +1,124 @@
+.main_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    column-gap: 3em;
+}
+
+.input_container {
+    width: 40%;
+    max-width: 550px;
+    flex: 0 0 auto;
+}
+
+.program_container {
+    position: relative;
+    max-width: 550px;
+    max-height: 850px;
+    flex: 0 0 auto;
+}
+
+.program_nav {
+    margin-bottom: 3px;
+    list-style: none;
+}
+
+.program_nav li {
+    position: relative;
+    margin: 0 -3px;
+    background: #fff;
+    display: inline-block;
+    padding: 5px 25px;
+    cursor: pointer;
+    -webkit-border-top-left-radius: 13px;
+    -webkit-border-top-right-radius: 13px;
+    -moz-border-radius-topleft: 13px;
+    -moz-border-radius-topright: 13px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px; 
+}
+
+.program_nav .inactive {
+    visibility: hidden;
+}
+
+.program_nav p {
+    text-decoration: none;
+    color: #000;
+    margin-bottom: 0;
+}
+
+.program_nav .active {
+    z-index: 3;
+    background: #4682b4;
+}
+
+.program_nav .active p {
+    color: #fff;
+}
+
+.program_nav li:before, .program_nav li:after,
+.program_nav li p:before, .program_nav li p:after {
+    position: absolute;
+    bottom: 0;
+}
+
+.program_nav li:last-child:after,   .program_nav li:last-child p:after,
+.program_nav li:first-child:before, .program_nav li:first-child p:before,
+.program_nav .active:after,   .program_nav .active:before, 
+.program_nav .active p:after, .program_nav .active p:before {
+    content: "";
+    pointer-events: none;
+}
+
+.program_nav .active:before, .program_nav .active:after {
+    background: #4682b4;
+    z-index: 1;
+}
+
+.program_nav li:before, .program_nav li:after {
+    background: #fff;
+    width: 10px;
+    height: 10px;
+}
+
+.program_nav li:before {
+    left: -10px;
+}
+
+.program_nav li:after {
+    right: -10px;
+}
+
+.program_nav li p:after, .program_nav li p:before {
+    width: 20px;
+    height: 20px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius:    8px;
+    border-radius:         8px;
+    background: #fff;
+    z-index: 2;
+}
+
+.program_nav .active p:after, .program_nav .active p:before {
+    background: #fff; /* #ececec */
+}
+
+.program_nav li:first-child.active p:before,
+.program_nav li:last-child.active p:after {
+  background: #fff;
+}
+
+.program_nav li p:before {
+    left: -20px;
+}
+
+.program_nav li p:after {
+    right: -20px;
+}
+
+@media (max-width: 992px) {
+    .main_container {
+        flex-direction: column;
+    }
+}
