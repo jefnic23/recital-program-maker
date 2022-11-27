@@ -1,12 +1,12 @@
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import logo from '../logo.png';
-import upload from '../icons/upload-solid.png';
-import preview from '../icons/search-solid.png';
-import print from '../icons/print-solid.png';
-import help from '../icons/help-solid.png';
-import contact from '../icons/email-solid.png';
+import logo from '../assets/logo.png';
+import upload from '../assets/icons/upload-solid.png';
+import preview from '../assets/icons/search-solid.png';
+import print from '../assets/icons/print-solid.png';
+import help from '../assets/icons/help-solid.png';
+import contact from '../assets/icons/email-solid.png';
 import styles from '../styles/Header.module.css';
 
 export default function Header() {

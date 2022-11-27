@@ -11,6 +11,8 @@ export default function Piece(props) {
     useEffect(() => {
         if (!filled) {
             if (width < 450) {
+                // todo: calculate number of periods in one go, rather  
+                // than adding a single period until the line is full
                 setFiller(e => e + ' . ');
             } else {
                 setFiller(e => e.slice(0, -3));

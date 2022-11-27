@@ -1,4 +1,4 @@
-import Piece from '../components/Piece';
+import Piece from './Piece';
 import styles from '../styles/Performance.module.css';
 
 export default function Performance(props) {

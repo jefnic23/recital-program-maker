@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
 import ProgramHeader from './ProgramHeader';
-import Performance from '../components/Performance';
+import Performance from './Performance';
 import Footer from './Footer';
 import styles from '../styles/Program.module.css';
 
