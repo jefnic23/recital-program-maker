@@ -1,10 +1,13 @@
-import { useRef, useEffect } from 'react';
-import ProgramHeader from './ProgramHeader';
+import { useContext, useEffect, useRef } from 'react';
+import { Context } from '../Store';
+import Title from '../components/Title';
+import Subtitle from '../components/Subtitle';
 import Performance from './Performance';
 import Footer from './Footer';
 import styles from '../styles/Program.module.css';
 
 export default function Program(props) {
+    const [state, dispatch] = useContext(Context);
     const ref = useRef();
 
     const checkOverflow = (el) => {
@@ -25,19 +28,18 @@ export default function Program(props) {
         >
             {
                 props.page === 0 && 
-                <ProgramHeader 
-                    title={props.title} 
-                    font={props.font}
-                    size={props.size}
-                    subtitle={props.subtitle}
-                />
+                <div>
+                    <Title title={state.title} font={state.titleFont} size={state.titleSize} />
+                    <Subtitle subtitle={state.subtitle} />
+                </div>
             }
+            <hr className='style1' />
             <div className={styles.performances}>
                 {props.perfs.length > 0 && props.perfs.map((perf, i) => <Performance key={i} perf={perf} />)}
             </div>
             {
                 // footer should only be on last page
-                props.footer && <Footer footer={props.footer} />
+                state.footer && <Footer footer={state.footer} />
             }
         </div>
     );

@@ -1,58 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import FontOptions from './FontOptions';
+import { Context } from '../Store';
 
 const fontSizes = [];
 for (let i = 12; i < 73; i++) {
     fontSizes.push(<option value={i} key={i}>{i}</option>)
 }
 
-const createLink = (font) => {
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = `https://fonts.googleapis.com/css?family=${font.split(' ').join('+')}`;
-    return link;
-}
-
 export default function Inputs(props) {
-    const [title, setTitle] = useState('');
-    const [font, setFont] = useState('Concert One');
-    const [size, setSize] = useState('55');
-    const [link, setLink] = useState(createLink(font));
-    const [subtitle, setSubtitle] = useState('');
+    const [state, dispatch] = useContext(Context);
+
     const [pieces, setPieces] = useState('Untitled');
     const [composers, setComposers] = useState('Anon.');
     const [performers, setPerformers] = useState('John/Jane Doe');
-    const [footer, setFooter] = useState('');
     
     useEffect(() => {
-        document.head.appendChild(link);
-        return () => document.head.removeChild(link);
-    }, [link])
+        document.head.appendChild(state.fontLink);
+        return () => document.head.removeChild(state.fontLink);
+    }, [state.fontLink]);
 
-    const sendTitleInput = (e) => {
-        setTitle(e);
-        props.getTitleInput(e);
-    }
-
-    const sendTitleFont = (e) => {
-        setFont(e);
-        setLink(createLink(e));
-        props.getTitleFont(e);
-    }
-
-    const sendTitleSize = (e) => {
-        setSize(e);
-        props.getTitleSize(e);
-    }
-
-    const sendSubtitleInput = (e) => {
-        setSubtitle(e);
-        props.getSubtitleInput(e);
-    }
+    useEffect(() => {
+        dispatch({ type: 'SET_FONTLINK', payload: state.titleFont });
+    }, [dispatch, state.titleFont]);
 
     const sendPerformance = (e) => {
         e.preventDefault();
@@ -67,11 +40,6 @@ export default function Inputs(props) {
         e.target.reset();
     }
 
-    const sendFooterInput = (e) => {
-        setFooter(e);
-        props.getFooterInput(e);
-    }
-
     return (
         <Form onSubmit={sendPerformance}>
             <Form.Group className="mb-3" controlId="titleInput">
@@ -79,8 +47,8 @@ export default function Inputs(props) {
                 <Form.Control 
                     type="text" 
                     placeholder="enter the title for your recital"
-                    value={title}
-                    onChange={(e) => sendTitleInput(e.target.value)}
+                    value={state.title}
+                    onChange={(e) => dispatch({ type: 'SET_TITLE', payload: e.target.value })}
                     autoFocus={true} 
                 />
             </Form.Group>
@@ -90,8 +58,8 @@ export default function Inputs(props) {
                     <Form.Label>Font</Form.Label>
                     <Form.Select 
                         htmlSize={5} 
-                        value={font}
-                        onChange={(e) => sendTitleFont(e.target.value)}
+                        value={state.titleFont}
+                        onChange={(e) => dispatch({ type: 'SET_TITLEFONT', payload: e.target.value })}
                     >
                         <FontOptions />
                     </Form.Select>
@@ -100,8 +68,8 @@ export default function Inputs(props) {
                     <Form.Label>Size</Form.Label>
                     <Form.Select 
                         htmlSize={5} 
-                        value={size}
-                        onChange={(e) => sendTitleSize(e.target.value)}
+                        value={state.titleSize}
+                        onChange={(e) => dispatch({ type: 'SET_TITLESIZE', payload: e.target.value })}
                     >
                         {fontSizes}
                     </Form.Select>
@@ -113,8 +81,8 @@ export default function Inputs(props) {
                 <Form.Control 
                     as="textarea" 
                     placeholder='enter subtitle(s), if any' 
-                    value={subtitle}
-                    onChange={(e) => sendSubtitleInput(e.target.value)}
+                    value={state.subtitle}
+                    onChange={(e) => dispatch({ type: 'SET_SUBTITLE', payload: e.target.value })}
                 />
             </Form.Group>
 
@@ -158,8 +126,8 @@ export default function Inputs(props) {
                 <Form.Control 
                     as="textarea"
                     placeholder="enter footer(s), if any" 
-                    value={footer}
-                    onChange={(e) => sendFooterInput(e.target.value)}
+                    value={state.footer}
+                    onChange={(e) => dispatch({ type: 'SET_FOOTER', payload: e.target.value })}
                 />
             </Form.Group>
         </Form>
