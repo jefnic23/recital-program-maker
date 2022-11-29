@@ -1,31 +1,16 @@
-import { useState, useEffect } from "react";
-import useMeasure from "react-use-measure";
+import React from "react";
+import { getTextWidth } from "../utils/GetTextWidth";
 import styles from '../styles/Piece.module.css';
 
 export default function Piece(props) {
-    const [filler, setFiller] = useState(' . ');
-    const [filled, setFilled] = useState(false);
-    const [cname, setCname] = useState(styles.test);
-    const [ref, { width }] = useMeasure({ scroll: false });
-
-    useEffect(() => {
-        if (!filled) {
-            if (width < 450) {
-                // todo: calculate number of periods in one go, rather  
-                // than adding a single period until the line is full
-                setFiller(e => e + ' . ');
-            } else {
-                setFiller(e => e.slice(0, -3));
-                setFilled(!filled);
-                setCname(styles.piece);
-            }
-        }
-    }, [width, filled])
+    const initialWidth = getTextWidth(<b>{props.piece}</b> + props.composer);
+    const fillerWidth = getTextWidth(' . ');
+    const fillerRepeat = (450 - initialWidth) / fillerWidth;
 
     return (
-        <p ref={ref} className={cname}>
+        <p className={styles.piece}>
             <b>{props.piece}</b>
-            {filler}
+            {' . '.repeat(fillerRepeat)}
             {props.composer}
         </p>
     );
