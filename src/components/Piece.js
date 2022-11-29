@@ -5,7 +5,7 @@ import styles from '../styles/Piece.module.css';
 export default function Piece(props) {
     const initialWidth = getTextWidth(<b>{props.piece}</b> + props.composer);
     const fillerWidth = getTextWidth(' . ');
-    const fillerRepeat = (450 - initialWidth) / fillerWidth;
+    const fillerRepeat = Math.floor((450 - initialWidth) / fillerWidth);
 
     return (
         <p className={styles.piece}>
