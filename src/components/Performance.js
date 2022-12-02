@@ -1,3 +1,4 @@
+import React from 'react';
 import Piece from './Piece';
 import styles from '../styles/Performance.module.css';
 

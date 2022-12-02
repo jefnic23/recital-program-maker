@@ -9,7 +9,8 @@ const initialState = {
     titleSize: '55',
     subtitle: '',
     footer: '',
-    pages: 1,
+    page: 0,
+    program: [[]],
 };
 
 const Store = ({children}) => {

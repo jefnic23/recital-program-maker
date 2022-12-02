@@ -29,15 +29,20 @@ export default function Inputs(props) {
 
     const sendPerformance = (e) => {
         e.preventDefault();
+        // todo: get height here?
         props.getPerformance({
             'pieces': Array.isArray(pieces) ? pieces : [pieces], 
             'composers': Array.isArray(composers) ? composers : [composers], 
             'performers': Array.isArray(performers) ? performers : [performers]
         });
+        resetPerformance();
+        e.target.reset();
+    }
+
+    const resetPerformance = () => {
         setPieces('Untitled');
         setComposers('Anon.');
         setPerformers('John/Jane Doe');
-        e.target.reset();
     }
 
     return (
@@ -86,6 +91,8 @@ export default function Inputs(props) {
                 />
             </Form.Group>
 
+            <hr />
+
             <Form.Group className="mb-3" controlId='pieceInput'>
                 <Form.Label>Piece Title</Form.Label>
                 <Form.Control 
@@ -120,6 +127,8 @@ export default function Inputs(props) {
             <Form.Group className='mb-3' controlId='togglePerformers'>
                 <Form.Check type="switch" label='Place performers(s) on top' />
             </Form.Group>
+
+            <hr />
             
             <Form.Group className='mb-3' controlId='footerInput'>
                 <Form.Label>Footer</Form.Label>

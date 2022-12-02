@@ -15,7 +15,7 @@ const Reducer = (state, action) => {
         case 'SET_FOOTER':
             return { ...state, footer: action.payload };
         case 'ADD_PAGE':
-            return { ...state, pages: state.pages + 1 };
+            return { ...state, program: [...state.program, []], page: state.page + 1 };
         default:
             return state;
     }

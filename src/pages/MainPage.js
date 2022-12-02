@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,24 +11,17 @@ export default function MainPage() {
     const [pages, setPages] = useState([[], [], [], []]);
     const [currentPage, setCurrentPage] = useState(0);
     const [showPage, setShowPage] = useState(0);
-    const [font, setFont] = useState('');
-    const [size, setSize] = useState('');
-
-    const getTitleFont = (e) => {
-        setFont(e);
-    }
-
-    const getTitleSize = (e) => {
-        setSize(e);
-    }
 
     const getPerformance = (e) => {
         setPages(pages.map((page, i) => i === currentPage ? [...page, e] : [...page]));
     }
 
     const createNewPage = (e) => {
-        setCurrentPage(old => old + 1);
-        // setPages(pages.map((page, i) => i === currentPage ? [...page, e] : [...page]));
+        let newPage = currentPage + 1;
+        setCurrentPage(newPage);
+
+        let program = [...pages].map((page, i) => i === currentPage ? [...page, e] : [...page]);
+        setPages(program);
     }
 
     const togglePage = (e) => {
@@ -46,8 +39,6 @@ export default function MainPage() {
                 <Row>
                     <Col lg={5}>
                         <Inputs 
-                            getTitleFont={getTitleFont}
-                            getTitleSize={getTitleSize}
                             getPerformance={getPerformance}
                         />
                     </Col>
@@ -72,8 +63,6 @@ export default function MainPage() {
                                     key={i}
                                     page={i}
                                     showPage={showPage}
-                                    font={font}
-                                    size={size}
                                     perfs={page}
                                     createNewPage={createNewPage}
                                 />
