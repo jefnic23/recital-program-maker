@@ -13,7 +13,6 @@ for (let i = 12; i < 73; i++) {
 
 export default function Inputs(props) {
     const [state, dispatch] = useContext(Context);
-
     const [pieces, setPieces] = useState('Untitled');
     const [composers, setComposers] = useState('Anon.');
     const [performers, setPerformers] = useState('John/Jane Doe');
@@ -27,14 +26,14 @@ export default function Inputs(props) {
         dispatch({ type: 'SET_FONTLINK', payload: state.titleFont });
     }, [dispatch, state.titleFont]);
 
-    const sendPerformance = (e) => {
+    const getPerformance = (e) => {
         e.preventDefault();
-        // todo: get height here?
-        props.getPerformance({
+        let performance = {
             'pieces': Array.isArray(pieces) ? pieces : [pieces], 
             'composers': Array.isArray(composers) ? composers : [composers], 
             'performers': Array.isArray(performers) ? performers : [performers]
-        });
+        };
+        dispatch({ type: 'SET_PAGE', payload: performance });
         resetPerformance();
         e.target.reset();
     }
@@ -46,7 +45,7 @@ export default function Inputs(props) {
     }
 
     return (
-        <Form onSubmit={sendPerformance}>
+        <Form onSubmit={getPerformance}>
             <Form.Group className="mb-3" controlId="titleInput">
                 <Form.Label>Program Title</Form.Label>
                 <Form.Control 
@@ -125,7 +124,7 @@ export default function Inputs(props) {
             </Button>
 
             <Form.Group className='mb-3' controlId='togglePerformers'>
-                <Form.Check type="switch" label='Place performers(s) on top' />
+                <Form.Check type="switch" label='Place performer(s) on top' />
             </Form.Group>
 
             <hr />

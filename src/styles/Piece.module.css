@@ -8,16 +8,11 @@
 }
 
 .piece {
+    display: flex;
+    justify-content: space-between;
     font-family: Georgia, serif;
     font-size: 10pt;
     margin: 0;
-    text-align: justify;
     height: 16px;
     line-height: 1;
-}
-
-.piece:after {
-    content: "";
-    width: 100%;
-    display: inline-block;
 }

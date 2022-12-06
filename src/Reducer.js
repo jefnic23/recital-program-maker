@@ -14,8 +14,18 @@ const Reducer = (state, action) => {
             return { ...state, subtitle: action.payload };
         case 'SET_FOOTER':
             return { ...state, footer: action.payload };
+        case 'SET_PAGE':
+            return { ...state, program: state.program.map((page, i) => i === state.page ? [...page, action.payload] : [...page]) };
         case 'ADD_PAGE':
             return { ...state, program: [...state.program, []], page: state.page + 1 };
+        case 'SET_TITLEHEIGHT':
+            return { ...state, titleHeight: action.payload };
+        case 'SET_SUBTITLEHEIGHT':
+            return { ...state, subtitleHeight: action.payload };
+        case 'SET_FOOTERHEIGHT':
+            return { ...state, footerHeight: action.payload };
+        case 'SET_PROGRAMHEIGHT':
+            return { ...state, programHeight: state.programHeight + action.payload };
         default:
             return state;
     }

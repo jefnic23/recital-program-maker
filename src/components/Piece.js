@@ -8,10 +8,10 @@ export default function Piece(props) {
     const fillerRepeat = Math.floor((450 - initialWidth) / fillerWidth);
 
     return (
-        <p className={styles.piece}>
+        <div className={styles.piece}>
             <b>{props.piece}</b>
-            {'.'.repeat(fillerRepeat)}
+            <p>{'.'.repeat(fillerRepeat)}</p>
             {props.composer}
-        </p>
+        </div>
     );
 }

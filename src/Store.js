@@ -11,6 +11,10 @@ const initialState = {
     footer: '',
     page: 0,
     program: [[]],
+    titleHeight: 0,
+    subtitleHeight: 0,
+    programHeight: 0,
+    footerHeight: 0,
 };
 
 const Store = ({children}) => {
