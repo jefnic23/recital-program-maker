@@ -1,0 +1,18 @@
+.test {
+    font-family: Georgia, serif;
+    font-size: 10pt;
+    height: auto;
+    width: auto;
+    position: absolute;
+    white-space: nowrap;
+}
+
+.piece {
+    display: flex;
+    justify-content: space-between;
+    font-family: Georgia, serif;
+    font-size: 10pt;
+    margin: 0;
+    height: 16px;
+    line-height: 1;
+}

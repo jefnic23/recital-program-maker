@@ -1,0 +1,28 @@
+.program_page {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    height: 850px;
+    padding: 50px;
+    margin: auto;
+    outline: black 3px solid;
+    overflow: auto;
+}
+
+.performances {
+    transform: translateX(-50px);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1;
+    row-gap: var(--row-gap);
+}
+
+.active {
+    visibility: visible;
+}
+
+.inactive {
+    visibility: hidden;
+}

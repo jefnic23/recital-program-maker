@@ -1,0 +1,19 @@
+.logo {
+	width: 100%;
+	max-width: 500px;
+	margin: 0 34px;
+}
+
+.brand_expand {
+    display: block;
+}
+
+@media (max-width: 992px) {
+	.brand_expand {
+		display: none;
+	}
+
+	.navbar-toggler {
+		margin-left: auto;
+	}
+}

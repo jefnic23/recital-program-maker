@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- Google Tag Manager -->
-        <script>
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-TDX4T6N');
-        </script>
-        <!-- End Google Tag Manager -->
+        
         <title>Program Maker</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="img/favicon.png">
@@ -21,59 +13,7 @@
         <script type="text/javascript" src="js/html2canvas.min.js"></script>
     </head>
     <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TDX4T6N" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-        </noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-                <div class="navbar-brand brand-collapse mr-auto">Program Maker</div>
-                <button type="button" class="navbar-toggler ms-auto" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item hvr-grow">
-                            <div id="upload">
-                                <label for='uploadButton' class="icon_container">
-                                    <img class="icon" src="img/upload-solid.png">
-                                    <span>Upload</span>
-                                </label>
-                                <input id="uploadButton" type='file' accept=".csv, .tsv">
-                            </div>
-                        </li>
-                        <li class="nav-item hvr-grow">
-                            <div id="preview" class="icon_container">
-                                <img class="icon" src="img/search-solid.png">
-                                <span>Preview</span>
-                            </div>
-                        </li>
-                        <li class="nav-item hvr-grow">
-                            <div id="print" class="icon_container">
-                                <img class="icon" src="img/print-solid.png">
-                                <span>Print</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="navbar-brand brand-expand mr-auto">Program Maker</div>
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item hvr-grow">
-                            <div id="help" class="icon_container">
-                                <a href="https://github.com/jefnic23/recital-program-maker" target="_blank"><img class="icon" src="img/help-solid.png"></a>
-                                <span>Help</span>
-                            </div>
-                        </li>
-                        <li class="nav-item hvr-grow">
-                            <div id="contact" class="icon_container">
-                                <a href="mailto:jefnic23@gmail.com" target="_blank"><img class="icon" src="img/email-solid.png"></a>
-                                <span>Contact</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        
         <div class="container-fluid">
             <br>
             <div id="main" class="main-container">
@@ -93,7 +33,6 @@
                                 </div>
                             </div>
                         </div>
-                        
                         <hr style="margin-top: 21px; margin-bottom: 21px;"/>
                         <div class="input-row form-group">
                             <label for="subtitleInput">Subtitle</label>
@@ -144,33 +83,7 @@
                         </div>
                     </form>
                 </div>
-                <div id="program" class="program-container">
-                    <ul id="program-nav">
-                        <li class="active" onclick="showPage(this, 0)">
-                            <a href="#">Page 1</a>
-                        </li>
-                        <li class="inactive" onclick="showPage(this, 1)">
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li class="inactive" onclick="showPage(this, 2)">
-                            <a href="#">Page 3</a>
-                        </li>
-                        <li class="inactive" onclick="showPage(this, 3)">
-                            <a href="#">Page 4</a>
-                        </li>
-                    </ul>
-                    <div class="program-page">
-                        <div id='header'>
-                            <div id="title"></div>
-                            <div id="subtitle"></div>
-                        </div>
-                        <hr class="style1">
-                        <div class="performances"></div>
-                        <div id='footer'>
-                            <p id="footerText"></p>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
             <div id="overlay" onclick="off()">
                 <h2 class="overlay-text">Click anywhere to close preview</h2>
