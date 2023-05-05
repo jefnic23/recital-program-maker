@@ -19,8 +19,8 @@ I find formatting recital programs in word processors to be tedious, even with p
 - grab the template from [this link](https://docs.google.com/spreadsheets/d/1CK7CRbGqo_S3vZ2KLCFBSKyBFl5XKLUXu73X-q1-2aI/edit#gid=0)
 - there is an example tab at the bottom showing how to fill out the template
 - copy the template to your Google drive, or download a copy to your device
-- make sure to download it as a .csv file
-- when you're ready, save the completed template (as a .csv) and click the upload button on the site
+- make sure to download it as a **.tsv file**
+- when you're ready, save the completed template (as a **.tsv file**) and click the upload button on the site
 - when you load the file, the program will fill automatically
 
 

@@ -4,7 +4,8 @@ function keyExists(obj, key) {
 
 function readUpload(event) {
     var f = event.target.files[0];
-    if (f && f.type === "text/csv") {
+    var ftype = f.name.split(".").slice(-1)[0];
+    if (f && ftype === "tsv") {
         var r = new FileReader();
         r.onload = (e) => {
             var contents = e.target.result;
@@ -17,7 +18,7 @@ function readUpload(event) {
             };
             for (let i = 1; i < lines.length; i++) {
                 if (lines[i]) {
-                    var line = lines[i].split(',');
+                    var line = lines[i].split('\t');
                     details.title += line[0];
 
                     if (details.subtitle && line[1]) {
@@ -138,7 +139,7 @@ function readUpload(event) {
         }
         r.readAsText(f);   
     } else {
-        window.alert('Please upload a .csv file');
+        window.alert('Please upload a .tsv file');
     }
 }
 
