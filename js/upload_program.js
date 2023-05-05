@@ -17,7 +17,7 @@ function readUpload(event) {
             };
             for (let i = 1; i < lines.length; i++) {
                 if (lines[i]) {
-                    var line = lines[i].split('\t');
+                    var line = lines[i].split(',');
                     details.title += line[0];
 
                     if (details.subtitle && line[1]) {
@@ -138,7 +138,7 @@ function readUpload(event) {
         }
         r.readAsText(f);   
     } else {
-        window.alert('Please upload a .csv or .tsv file');
+        window.alert('Please upload a .csv file');
     }
 }
 
